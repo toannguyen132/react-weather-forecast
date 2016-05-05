@@ -14,6 +14,7 @@ import Weather from './Weather'
 import Form from './Form'
 import $ from 'jquery'
 import {makeLocationOptions} from '../reducers/queryOptions'
+import styles from '../css/app.css'
 
 function mapStateToProps(state, ownProps){
   return {
