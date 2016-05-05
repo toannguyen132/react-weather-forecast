@@ -10,6 +10,7 @@ import {loadWeatherData,
     getWoeidByLocation,
     changeLocation } from '../actions/HomeActions'
 import Weather from './Weather'
+import styles from '../css/app.css';
 
 function mapStateToProps(state, ownProps){
   return {
