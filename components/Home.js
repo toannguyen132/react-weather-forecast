@@ -8,9 +8,12 @@ import {loadWeatherData,
     doFetchWeatherData,
     getWoeidByText,
     getWoeidByLocation,
-    changeLocation } from '../actions/HomeActions'
+    changeLocation,
+    updateLocationOptions} from '../actions/HomeActions'
 import Weather from './Weather'
-import styles from '../css/app.css';
+import Form from './Form'
+import $ from 'jquery'
+import {makeLocationOptions} from '../reducers/queryOptions'
 
 function mapStateToProps(state, ownProps){
   return {
@@ -36,6 +39,12 @@ function mergeProps(stateProps, dispatchProps, ownProps){
   return Object.assign({}, ownProps, stateProps, dispatchProps, {
     onRefresh() {
       doFetchWeatherData(dispatch, queryOptions)
+    },
+    onSubmit(event) {
+      event.preventDefault();
+      let location = $(event.currentTarget).find('input[type=text]').val()
+
+      doFetchWeatherData( dispatch, dispatch( updateLocationOptions( makeLocationOptions( {'location': location } ) ) ) )
     }
   })
 }
@@ -44,27 +53,34 @@ class Home extends Component {
 
   constructor(props) {
     super(props)
-    // this.onRefresh = this.onRefresh.bind(this)
   }
 
   componentDidMount() {
     let {dispatch, queryOptions} = this.props
     let $this = this;
     // get coordinate
-
-    // doFetchWeatherData(dispatch, {location: 'Ha Noi city'})
-
     getWoeidByLocation( (lat, lon) => {
-      dispatch( getCurrentGeoLocation(lat, lon) )
+      // dispatch( getCurrentGeoLocation(lat, lon) )
 
-      setTimeout(() => {
-        doFetchWeatherData( dispatch, $this.props.queryOptions)
-      }, 1000);
-    })
+      doFetchWeatherData(
+          dispatch,
+          dispatch(
+              updateLocationOptions(
+                  makeLocationOptions( {
+                    geolocation: {lat: lat, lon: lon}
+                  } )
+              )
+          )
+      )
+
+      // setTimeout(() => {
+      //   doFetchWeatherData( dispatch, $this.props.queryOptions)
+      // }, 1000);
+    }, () => {} )
   }
 
   render() {
-    const {weatherData, queryOptions, request, dispatch, onRefresh, onChangeLocation} = this.props
+    const {weatherData, queryOptions, request, dispatch, onSubmit, onChangeLocation} = this.props
     /*
     <!--<p>
           <input type="text" {...queryOptions.location} onChange={onChangeLocation}/>
@@ -74,10 +90,10 @@ class Home extends Component {
     */
     return (
       <div>
-        { !weatherData.isFetching && weatherData.data ? 
+        { !weatherData.isFetching && typeof weatherData.data != 'undefined' ?
           <Weather data={weatherData.data} />
         :
-          <p className="text">loading</p>
+          <Form onSubmit={onSubmit} />
         }
       </div>
     );

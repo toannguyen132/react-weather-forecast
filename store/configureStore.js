@@ -1,9 +1,7 @@
 import {createStore, applyMiddleware, combineReducers, compose} from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import {devTools, persistState} from 'redux-devtools';
-// import * as reducers from '../reducers/index';
-import weatherData from '../reducers/weatherData';
-import queryOptions from '../reducers/queryOptions';
+import rootReducer from '../reducers/index';
 
 let createStoreWithMiddleware;
 
@@ -19,7 +17,7 @@ if (__DEV__) {
   createStoreWithMiddleware = applyMiddleware(thunkMiddleware)(createStore);
 }
 
-const rootReducer = combineReducers({weatherData, queryOptions});
+// const rootReducer = combineReducers({weatherData, queryOptions});
 
 export default function configureStore(initialState) {
   return createStoreWithMiddleware(rootReducer, initialState);

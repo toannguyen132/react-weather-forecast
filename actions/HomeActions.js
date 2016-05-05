@@ -28,6 +28,13 @@ export function loadWeatherDataFailed(err) {
 	}
 }
 
+export function updateLocationOptions(options){
+	return {
+		type: CHANGE_FETCH_OPTIONS,
+		options
+	}
+}
+
 export function changeLocation(location){
 	return {
 		type: CHANGE_FETCH_OPTIONS,
@@ -42,17 +49,16 @@ export function getCurrentGeoLocation(lat, lon){
 	}
 }
 
-export function getWoeidByLocation( callback ){
+export function getWoeidByLocation( callback, fail_callback ){
 	//get geo navigator
 	if ( navigator.geolocation ){
 		navigator.geolocation.getCurrentPosition( position => {
 			let lat = position.coords.latitude;
 			let lon = position.coords.longitude;
 			callback( lat, lon );
-			// dispatch( getCurrentGeoLocation(lat+','+lon) );
-		} )		
+		} )
 	} else {
-		return false
+		fail_callback();
 	}
 }
 
@@ -73,7 +79,7 @@ export function getWoeidByText(dispatch, text){
 }
 
 export function doFetchWeatherData(dispatch, weatherOptions){
-	let {text} = weatherOptions;
+	let {text} = weatherOptions.options;
 
 	let query = 'Select * from weather.forecast where u = "c" and woeid IN (select woeid from geo.places(1) where text="'+text+'")';
 	let url = 'https://query.yahooapis.com/v1/public/yql?q=' + encodeURI(query) + '&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys';
