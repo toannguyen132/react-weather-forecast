@@ -22,7 +22,7 @@ const Weather = ({data}) => (
 		<div className="weather-upper">
 			<div className="bg"></div>
 			<h1 className="location">{data.location}</h1>
-			<h2 className="temp">{data.condition.temp} a &deg;</h2>
+			<h2 className="temp">{data.condition.temp}&deg;</h2>
 			<h3 className="text">{data.condition.text}</h3>
 		</div>
 		<div className="weather-lower">
