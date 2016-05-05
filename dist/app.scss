@@ -1,0 +1,36 @@
+body, html{
+	font-family: "Hevetica", "Arial", sans-serif;
+	margin: 0;
+}
+
+*{
+	box-sizing: border-box;
+}
+
+.weather-container{
+	&.hot{
+		.weather-upper{
+			background-color: #DF7C2E;
+			color: #fff;
+		}
+	}
+}
+
+.weather-upper{
+	padding: 50px;
+	text-align: center;
+	height: 50vh;
+}
+
+.weather-lower{
+	height: 50vh;
+}
+
+.forecasts{
+	text-align: center;
+	.forecast-item{
+		display: inline-block;
+		padding: 30px 15px;
+		text-align: center;
+	}
+}
