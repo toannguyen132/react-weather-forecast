@@ -99,7 +99,7 @@ export function doFetchWeatherData(dispatch, weatherOptions){
 
 let refineData = (data) => {
 	// fore yahoo weather
-	let forecast = data.item.forecast.splice(1, 7);
+	let forecast = data.item.forecast.splice(1, 4);
 	const refineData = {
 		location: data.location.city,
 		weatherClassName: 'hot',

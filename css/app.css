@@ -1,5 +1,64 @@
+@font-face {
+  font-family: 'dino';
+  font-weight: 400;
+  src: url("../fonts/DINOTMedium_0.eot");
+  src: url("../fonts/DINOTMedium_0.eot") format("embedded-opentype"), url("../fonts/DINOTMedium_0.woff2") format("woff2"), url("../fonts/DINOTMedium_0.woff") format("woff"), url("../fonts/DINOTMedium_0.ttf") format("truetype"), url("../fonts/DINOTMedium_0.svg#DINOTMedium_0") format("svg"); }
+@font-face {
+  font-family: 'dino';
+  font-weight: 700;
+  src: url("../fonts/DINOTBold_0.eot");
+  src: url("../fonts/DINOTBold_0.eot") format("embedded-opentype"), url("../fonts/DINOTBold_0.woff2") format("woff2"), url("../fonts/DINOTBold_0.woff") format("woff"), url("../fonts/DINOTBold_0.ttf") format("truetype"), url("../fonts/DINOTBold_0.svg#DINOTBold_0") format("svg"); }
+@font-face {
+  font-family: 'iconfont';
+  src: url("../fonts/iconfont.eot?6rjl9t");
+  src: url("../fonts/iconfont.eot?6rjl9t#iefix") format("embedded-opentype"), url("../fonts/iconfont.ttf?6rjl9t") format("truetype"), url("../fonts/iconfont.woff?6rjl9t") format("woff"), url("../fonts/iconfont.svg?6rjl9t#iconfont") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'iconfont' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+.icon-cloud-hail:before {
+  content: "\e900"; }
+
+.icon-cloud-sun-19:before {
+  content: "\e901"; }
+
+.icon-cloud:before {
+  content: "\e902"; }
+
+.icon-hurricane-45:before {
+  content: "\e903"; }
+
+.icon-light:before {
+  content: "\e904"; }
+
+.icon-moon:before {
+  content: "\e905"; }
+
+.icon-rain:before {
+  content: "\e906"; }
+
+.icon-snow:before {
+  content: "\e907"; }
+
+.icon-sunny:before {
+  content: "\e908"; }
+
+.icon-wind:before {
+  content: "\e909"; }
+
 body, html {
-  font-family: "Hevetica", "Arial", sans-serif;
+  font-family: 'dino', "Hevetica", "Arial", sans-serif;
   margin: 0; }
 
 * {
@@ -9,16 +68,56 @@ body, html {
   background-color: #DF7C2E;
   color: #fff; }
 
+h2, h3, h4, h5, h6 {
+  font-weight: 400;
+  margin: 0; }
+
 .weather-upper {
-  padding: 50px;
+  padding: 15px 0;
   text-align: center;
-  height: 50vh; }
+  height: 50vh;
+  position: relative;
+  color: #FFFFFF; }
+  .weather-upper .bg {
+    background-image: url("../img/moun.png");
+    background-repeat: no-repeat;
+    background-size: 50%;
+    background-position: 10% bottom;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0; }
+  .weather-upper .location {
+    font-size: 25px;
+    margin: 0 0 30px 0; }
+  .weather-upper .weather-right {
+    text-align: right; }
+    .weather-upper .weather-right .inner {
+      width: 270px;
+      display: inline-block;
+      text-align: center; }
+  .weather-upper .weather-icon {
+    font-size: 30px; }
+  .weather-upper .temperature {
+    font-size: 206.2px;
+    line-height: 1;
+    letter-spacing: 1.68px;
+    text-shadow: 9px 10px 13px rgba(20, 20, 20, 0.13); }
+    .weather-upper .temperature sup {
+      font-size: 40%;
+      font-weight: 400;
+      vertical-align: top; }
 
 .weather-lower {
   height: 50vh; }
 
 .forecasts {
-  text-align: center; }
+  text-align: right; }
+  .forecasts .inner {
+    width: 270px;
+    display: inline-block;
+    text-align: center; }
   .forecasts .forecast-item {
     display: inline-block;
     padding: 30px 15px;
@@ -34,5 +133,24 @@ body, html {
   outline: none;
   font-size: 30px;
   text-align: center; }
+
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto; }
+  @media (min-width: 768px) {
+    .container {
+      width: 100%; } }
+  @media (min-width: 1000px) {
+    .container {
+      width: 900px; } }
+  @media (min-width: 1400px) {
+    .container {
+      width: 1100px; } }
+
+.row {
+  margin-left: -15px;
+  margin-right: -15px; }
 
 /*# sourceMappingURL=app.css.map */

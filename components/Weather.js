@@ -6,15 +6,27 @@ const Weather = ({data}) => (
 	<div className={"weather-container " + data.weatherClassName}> 
 		<div className="weather-upper">
 			<div className="bg"></div>
-			<h1 className="title location">{data.location}</h1>
-			<h2 className="temperature subtitle">{data.condition.temp}&deg;</h2>
-			<h3 className="text subtitle">{data.condition.text}</h3>
+			<div className="container">
+				<h1 className="title location">{data.location}</h1>
+				<div className="weather-right">
+					<div className="inner">
+						<h3 className="weather-icon subtitle">
+							<span className="icon-rain"></span>
+						</h3>
+						<h2 className="temperature subtitle">{data.condition.temp}<sup>&deg;</sup></h2>
+					</div>
+				</div>
+			</div>
 		</div>
 		<div className="weather-lower">
-			<div className="forecasts">
-				{data.forecast.map( (forecast, key) => 	
-					<Forecast key={key} forecast={forecast} />
-				)}
+			<div className="container">
+				<div className="forecasts">
+					<div className="inner">
+						{data.forecast.map((forecast, key) =>
+							<Forecast key={key} forecast={forecast}/>
+						)}
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
