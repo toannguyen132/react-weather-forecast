@@ -100,7 +100,7 @@ h2, h3, h4, h5, h6 {
 .weather-upper {
   padding: 15px 0;
   text-align: center;
-  height: 50vh;
+  height: 65vh;
   position: relative;
   color: #FFFFFF; }
   .weather-upper .bg {
@@ -135,7 +135,7 @@ h2, h3, h4, h5, h6 {
       vertical-align: top; }
 
 .weather-lower {
-  height: 50vh; }
+  height: 35vh; }
 
 .forecasts {
   text-align: right; }
