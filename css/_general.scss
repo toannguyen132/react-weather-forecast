@@ -11,6 +11,7 @@ body, html{
   &.hot{
     .weather-upper{
       background-color: #DF7C2E;
+      background-image: linear-gradient(-178deg, #FFDB94 0%, #EC7759 100%);
       color: #fff;
     }
   }
@@ -82,6 +83,15 @@ h2, h3, h4, h5, h6{
     display: inline-block;
     padding: 30px 15px;
     text-align: center;
+    > div {
+      margin: 10px 0;
+    }
+    .icon{
+      color: #F87C4B;
+    }
+    .low{
+      opacity: 0.4;
+    }
   }
 }
 

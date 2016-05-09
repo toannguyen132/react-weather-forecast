@@ -27,6 +27,30 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
 
+.icon-cloud-light:before {
+  content: "\e911"; }
+
+.icon-rain-hail:before {
+  content: "\e910"; }
+
+.icon-cloud-moon:before {
+  content: "\e90a"; }
+
+.icon-cloud-rain:before {
+  content: "\e90b"; }
+
+.icon-cloud-snow:before {
+  content: "\e90c"; }
+
+.icon-moon-cloud-rain:before {
+  content: "\e90d"; }
+
+.icon-moon-cloud-snow:before {
+  content: "\e90e"; }
+
+.icon-partly-cloud:before {
+  content: "\e90f"; }
+
 .icon-cloud-hail:before {
   content: "\e900"; }
 
@@ -66,6 +90,7 @@ body, html {
 
 .weather-container.hot .weather-upper {
   background-color: #DF7C2E;
+  background-image: linear-gradient(-178deg, #FFDB94 0%, #EC7759 100%);
   color: #fff; }
 
 h2, h3, h4, h5, h6 {
@@ -122,6 +147,12 @@ h2, h3, h4, h5, h6 {
     display: inline-block;
     padding: 30px 15px;
     text-align: center; }
+    .forecasts .forecast-item > div {
+      margin: 10px 0; }
+    .forecasts .forecast-item .icon {
+      color: #F87C4B; }
+    .forecasts .forecast-item .low {
+      opacity: 0.4; }
 
 .form-weather input {
   border-bottom: 1px solid #9E561C;

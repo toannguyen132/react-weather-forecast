@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import Forecast from './Forecast'
+import Conditions from '../constants/ConditionCode'
 
 const Weather = ({data}) => (
 	<div className={"weather-container " + data.weatherClassName}> 
@@ -11,7 +12,7 @@ const Weather = ({data}) => (
 				<div className="weather-right">
 					<div className="inner">
 						<h3 className="weather-icon subtitle">
-							<span className="icon-rain"></span>
+							<span className={"icon-" + Conditions[data.condition.code].icon }></span>
 						</h3>
 						<h2 className="temperature subtitle">{data.condition.temp}<sup>&deg;</sup></h2>
 					</div>
