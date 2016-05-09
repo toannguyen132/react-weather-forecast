@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import Forecast from './Forecast'
 
 const Form = ({onSubmit}) => (
-	<div className="weather-container hot">
+	<div className="weather-container normal">
 		<div className="weather-upper">
 			<form onSubmit={onSubmit} className="form-weather">
 				<h2 className="subtitle">Please Enter your location</h2>

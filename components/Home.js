@@ -91,7 +91,7 @@ class Home extends Component {
     */
     return (
       <div>
-        { !weatherData.isFetching && typeof weatherData.data != 'undefined' ?
+        { weatherData.mounted ?
           <Weather data={weatherData.data} />
         :
           <Form onSubmit={onSubmit} />
