@@ -6,7 +6,7 @@
     "start": "node server.js",
     "test": "cross-env NODE_ENV=test mocha --recursive --compilers js:babel-register --require ./test/setup.js",
     "test:watch": "npm test -- --watch",
-    "build-production": "webpack -p --config webpack.production.js"
+    "build": "webpack -p --config webpack.production.js"
   },
   "repository": {
     "type": "git",
