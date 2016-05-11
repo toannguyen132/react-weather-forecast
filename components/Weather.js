@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import Forecast from './Forecast'
-import Doge from './Doge'
 import Conditions from '../constants/ConditionCode'
 
 var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
@@ -59,7 +58,9 @@ class Weather extends Component{
                 </div>
                 <div className="weather-lower">
                     <div className="container">
-                        <Doge />
+                        <div className="doge delay-5">
+                            <div className="doge-bg"></div>
+                        </div>
                         <div className="forecasts">
                             <div className="inner">
                                 {data.forecast.map((forecast, key) =>
