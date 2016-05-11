@@ -61,8 +61,6 @@ class Home extends Component {
     let $this = this;
     // get coordinate
     getWoeidByLocation( (lat, lon) => {
-      // dispatch( getCurrentGeoLocation(lat, lon) )
-
       doFetchWeatherData(
           dispatch,
           dispatch(
@@ -73,10 +71,6 @@ class Home extends Component {
               )
           )
       )
-
-      // setTimeout(() => {
-      //   doFetchWeatherData( dispatch, $this.props.queryOptions)
-      // }, 1000);
     }, () => {} )
   }
 

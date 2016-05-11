@@ -88,17 +88,37 @@ body, html {
 * {
   box-sizing: border-box; }
 
-.weather-container .weather-upper {
-  background-color: #2454AD;
-  background-image: linear-gradient(-178deg, #2454AD 0%, #509AD0 100%);
-  color: #fff;
-  overflow: hidden; }
-.weather-container.hot .weather-upper {
-  background-color: #EC7759;
-  background-image: linear-gradient(-178deg, #FFDB94 0%, #EC7759 100%); }
-.weather-container.rain .weather-upper {
-  background-color: #7A808D;
-  background-image: linear-gradient(-178deg, #98A5BD 0%, #7A808D 100%); }
+.weather-container {
+  height: 100vh; }
+  .weather-container .weather-upper {
+    background-color: #2454AD;
+    background-image: linear-gradient(-178deg, #2454AD 0%, #509AD0 100%);
+    color: #fff;
+    overflow: hidden; }
+  .weather-container.hot .weather-upper {
+    background-color: #EC7759;
+    background-image: linear-gradient(-178deg, #FFDB94 0%, #EC7759 100%); }
+  .weather-container.rain .weather-upper {
+    background-color: #7A808D;
+    background-image: linear-gradient(-178deg, #98A5BD 0%, #7A808D 100%); }
+
+.weather-lower {
+  position: relative; }
+  .weather-lower .container {
+    position: relative; }
+
+.doge {
+  width: 250px;
+  height: 250px;
+  position: absolute;
+  top: -100px;
+  left: 10%; }
+  .doge .doge-bg {
+    width: 100%;
+    height: 100%;
+    background-image: url("../img/doge.gif");
+    background-size: contain;
+    background-repeat: no-repeat; }
 
 h2, h3, h4, h5, h6 {
   font-weight: 400;
@@ -334,6 +354,14 @@ h2, h3, h4, h5, h6 {
 
 .weather-container .bg {
   top: 100%; }
+.weather-container .weather-upper {
+  height: 100vh;
+  transition-property: all;
+  transition-duration: 400ms; }
+.weather-container .weather-lower {
+  height: 0;
+  transition-property: all;
+  transition-duration: 400ms; }
 .weather-container .weather-upper .location, .weather-container .weather-upper .weather-icon, .weather-container .weather-upper .temperature {
   opacity: 0;
   transition-property: all;
@@ -342,6 +370,12 @@ h2, h3, h4, h5, h6 {
   opacity: 0;
   transition-property: all;
   transition-duration: 1s; }
+.weather-container .doge {
+  opacity: 0;
+  transition-property: all;
+  transition-duration: 1s; }
+.weather-container.showup .doge {
+  opacity: 1; }
 .weather-container.showup .bg {
   animation-name: slide-up;
   animation-delay: 200ms;
@@ -353,5 +387,9 @@ h2, h3, h4, h5, h6 {
   opacity: 1; }
 .weather-container.showup .forecast-item {
   opacity: 1; }
+.weather-container.showup .weather-upper {
+  height: 65vh; }
+.weather-container.showup .weather-lower {
+  height: 35vh; }
 
 /*# sourceMappingURL=app.css.map */
