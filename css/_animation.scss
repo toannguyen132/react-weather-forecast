@@ -1,0 +1,63 @@
+@keyframes slide-up{
+  0%{
+    top: 100%;
+  }
+  70%{
+    top: 0;
+  }
+  100%{
+    top: 3%;
+  }
+}
+
+$delay: 0;
+@for $i from 1 to 20 {
+  .delay-#{$i} {
+    -webkit-transition-delay: #{$i*100}ms;
+    -moz-transition-delay: #{$i*100}ms;
+    -ms-transition-delay: #{$i*100}ms;
+    -o-transition-delay: #{$i*100}ms;
+    transition-delay: #{$i*100}ms;
+  }
+}
+
+.weather-container{
+  .bg{
+    top: 100%;
+  }
+
+  .weather-upper{
+    .location, .weather-icon, .temperature{
+      opacity: 0;
+      transition-property: all;
+      transition-duration: 1s;
+    }
+  }
+
+  .forecast-item{
+    opacity: 0;
+    transition-property: all;
+    transition-duration: 1s;
+  }
+
+  &.showup{
+    .bg{
+      //top: 0;
+      animation-name: slide-up;
+      animation-delay: 200ms;
+      animation-duration: 500ms;
+      animation-fill-mode: forwards;
+      transition-property: all;
+      transition-duration: 500ms;
+    }
+
+    .weather-upper{
+      .location, .weather-icon, .temperature{
+        opacity: 1;
+      }
+    }
+    .forecast-item{
+      opacity: 1;
+    }
+  }
+}

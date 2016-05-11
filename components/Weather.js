@@ -42,17 +42,17 @@ class Weather extends Component{
         let {data, backgroundClass, classes} = this.props
 
         return (
-            <div className={"weather-container " + backgroundClass()}>
+            <div className={"weather-container " + backgroundClass() + (classes.mounted ? ' showup': '')}>
                 <div className="weather-upper">
-                    <div className={"bg " + (classes.mounted ? 'showup': '')}></div>
+                    <div className="bg"></div>
                     <div className="container">
-                        <h1 className="title location">{data.location}</h1>
+                        <h1 className="title location delay-2">{data.location}</h1>
                         <div className="weather-right">
                             <div className="inner">
-                                <h3 className="weather-icon subtitle">
+                                <h3 className="weather-icon subtitle delay-3">
                                     <span className={"icon-" + Conditions[data.condition.code].icon }></span>
                                 </h3>
-                                <h2 className="temperature subtitle">{data.condition.temp}<sup>&deg;</sup></h2>
+                                <h2 className="temperature subtitle delay-4">{data.condition.temp}<sup>&deg;</sup></h2>
                             </div>
                         </div>
                     </div>

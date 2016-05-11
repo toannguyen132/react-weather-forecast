@@ -91,7 +91,8 @@ body, html {
 .weather-container .weather-upper {
   background-color: #2454AD;
   background-image: linear-gradient(-178deg, #2454AD 0%, #509AD0 100%);
-  color: #fff; }
+  color: #fff;
+  overflow: hidden; }
 .weather-container.hot .weather-upper {
   background-color: #EC7759;
   background-image: linear-gradient(-178deg, #FFDB94 0%, #EC7759 100%); }
@@ -119,10 +120,7 @@ h2, h3, h4, h5, h6 {
     position: absolute;
     bottom: 0;
     left: 0;
-    opacity: 0;
     transition: all 1s; }
-    .weather-upper .bg.showup {
-      opacity: 1; }
   .weather-upper .location {
     font-size: 25px;
     margin: 0 0 30px 0; }
@@ -193,5 +191,167 @@ h2, h3, h4, h5, h6 {
 .row {
   margin-left: -15px;
   margin-right: -15px; }
+
+@keyframes slide-up {
+  0% {
+    top: 100%; }
+  70% {
+    top: 0; }
+  100% {
+    top: 3%; } }
+.delay-1 {
+  -webkit-transition-delay: 100ms;
+  -moz-transition-delay: 100ms;
+  -ms-transition-delay: 100ms;
+  -o-transition-delay: 100ms;
+  transition-delay: 100ms; }
+
+.delay-2 {
+  -webkit-transition-delay: 200ms;
+  -moz-transition-delay: 200ms;
+  -ms-transition-delay: 200ms;
+  -o-transition-delay: 200ms;
+  transition-delay: 200ms; }
+
+.delay-3 {
+  -webkit-transition-delay: 300ms;
+  -moz-transition-delay: 300ms;
+  -ms-transition-delay: 300ms;
+  -o-transition-delay: 300ms;
+  transition-delay: 300ms; }
+
+.delay-4 {
+  -webkit-transition-delay: 400ms;
+  -moz-transition-delay: 400ms;
+  -ms-transition-delay: 400ms;
+  -o-transition-delay: 400ms;
+  transition-delay: 400ms; }
+
+.delay-5 {
+  -webkit-transition-delay: 500ms;
+  -moz-transition-delay: 500ms;
+  -ms-transition-delay: 500ms;
+  -o-transition-delay: 500ms;
+  transition-delay: 500ms; }
+
+.delay-6 {
+  -webkit-transition-delay: 600ms;
+  -moz-transition-delay: 600ms;
+  -ms-transition-delay: 600ms;
+  -o-transition-delay: 600ms;
+  transition-delay: 600ms; }
+
+.delay-7 {
+  -webkit-transition-delay: 700ms;
+  -moz-transition-delay: 700ms;
+  -ms-transition-delay: 700ms;
+  -o-transition-delay: 700ms;
+  transition-delay: 700ms; }
+
+.delay-8 {
+  -webkit-transition-delay: 800ms;
+  -moz-transition-delay: 800ms;
+  -ms-transition-delay: 800ms;
+  -o-transition-delay: 800ms;
+  transition-delay: 800ms; }
+
+.delay-9 {
+  -webkit-transition-delay: 900ms;
+  -moz-transition-delay: 900ms;
+  -ms-transition-delay: 900ms;
+  -o-transition-delay: 900ms;
+  transition-delay: 900ms; }
+
+.delay-10 {
+  -webkit-transition-delay: 1000ms;
+  -moz-transition-delay: 1000ms;
+  -ms-transition-delay: 1000ms;
+  -o-transition-delay: 1000ms;
+  transition-delay: 1000ms; }
+
+.delay-11 {
+  -webkit-transition-delay: 1100ms;
+  -moz-transition-delay: 1100ms;
+  -ms-transition-delay: 1100ms;
+  -o-transition-delay: 1100ms;
+  transition-delay: 1100ms; }
+
+.delay-12 {
+  -webkit-transition-delay: 1200ms;
+  -moz-transition-delay: 1200ms;
+  -ms-transition-delay: 1200ms;
+  -o-transition-delay: 1200ms;
+  transition-delay: 1200ms; }
+
+.delay-13 {
+  -webkit-transition-delay: 1300ms;
+  -moz-transition-delay: 1300ms;
+  -ms-transition-delay: 1300ms;
+  -o-transition-delay: 1300ms;
+  transition-delay: 1300ms; }
+
+.delay-14 {
+  -webkit-transition-delay: 1400ms;
+  -moz-transition-delay: 1400ms;
+  -ms-transition-delay: 1400ms;
+  -o-transition-delay: 1400ms;
+  transition-delay: 1400ms; }
+
+.delay-15 {
+  -webkit-transition-delay: 1500ms;
+  -moz-transition-delay: 1500ms;
+  -ms-transition-delay: 1500ms;
+  -o-transition-delay: 1500ms;
+  transition-delay: 1500ms; }
+
+.delay-16 {
+  -webkit-transition-delay: 1600ms;
+  -moz-transition-delay: 1600ms;
+  -ms-transition-delay: 1600ms;
+  -o-transition-delay: 1600ms;
+  transition-delay: 1600ms; }
+
+.delay-17 {
+  -webkit-transition-delay: 1700ms;
+  -moz-transition-delay: 1700ms;
+  -ms-transition-delay: 1700ms;
+  -o-transition-delay: 1700ms;
+  transition-delay: 1700ms; }
+
+.delay-18 {
+  -webkit-transition-delay: 1800ms;
+  -moz-transition-delay: 1800ms;
+  -ms-transition-delay: 1800ms;
+  -o-transition-delay: 1800ms;
+  transition-delay: 1800ms; }
+
+.delay-19 {
+  -webkit-transition-delay: 1900ms;
+  -moz-transition-delay: 1900ms;
+  -ms-transition-delay: 1900ms;
+  -o-transition-delay: 1900ms;
+  transition-delay: 1900ms; }
+
+.weather-container .bg {
+  top: 100%; }
+.weather-container .weather-upper .location, .weather-container .weather-upper .weather-icon, .weather-container .weather-upper .temperature {
+  opacity: 0;
+  transition-property: all;
+  transition-duration: 1s; }
+.weather-container .forecast-item {
+  opacity: 0;
+  transition-property: all;
+  transition-duration: 1s; }
+.weather-container.showup .bg {
+  animation-name: slide-up;
+  animation-delay: 200ms;
+  animation-duration: 500ms;
+  animation-fill-mode: forwards;
+  transition-property: all;
+  transition-duration: 500ms; }
+.weather-container.showup .weather-upper .location, .weather-container.showup .weather-upper .weather-icon, .weather-container.showup .weather-upper .temperature {
+  opacity: 1; }
+.weather-container.showup .forecast-item {
+  opacity: 1; }
 
 /*# sourceMappingURL=app.css.map */
