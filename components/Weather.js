@@ -58,8 +58,12 @@ class Weather extends Component{
                 </div>
                 <div className="weather-lower">
                     <div className="container">
-                        <div className="doge delay-5">
-                            <div className="doge-bg"></div>
+                        <div className="doge">
+                            <div className="doge-circles delay-4">
+                                <div className="circle-big"></div>
+                                <div className="circle-small"></div>
+                            </div>
+                            <div className="doge-bg delay-7"></div>
                         </div>
                         <div className="forecasts">
                             <div className="inner">

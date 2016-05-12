@@ -52,14 +52,26 @@ $delay: 0;
   }
 
   .doge{
-    opacity: 0;
-    transition-property: all;
-    transition-duration: 1s;
+    .doge-bg{
+      opacity: 0;
+      transition-property: all;
+      transition-duration: 1s;
+    }
+    .doge-circles{
+      transform: scale(0);
+      transition-property: all;
+      transition-duration: 500ms;
+    }
   }
 
   &.showup{
     .doge{
-      opacity: 1;
+      .doge-bg{
+        opacity: 1;
+      }
+      .doge-circles{
+        transform: scale(1);
+      }
     }
     .bg{
       //top: 0;
