@@ -3,7 +3,6 @@ import {connect} from 'react-redux'
 
 
 const mapStateToProps = (state, ownProps) => {
-    console.log(state);
     return{
         screenClass: state.screen !== 'loading' ? 'hidden' : '',
         ownProps

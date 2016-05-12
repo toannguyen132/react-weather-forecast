@@ -52,14 +52,12 @@ export function getCurrentGeoLocation(lat, lon){
 
 export function getWoeidByLocation( callback, fail_callback ){
 	//get geo navigator
-	console.log('bla bla bla')
 	if ( navigator.geolocation && typeof navigator.geolocation.getCurrentPosition == 'function' ){
 		navigator.geolocation.getCurrentPosition( position => {
 			let lat = position.coords.latitude;
 			let lon = position.coords.longitude;
 			callback( lat, lon );
 		}, () => {
-			console.log('get location failed');
 			fail_callback()
 		});
 	} else {
@@ -74,12 +72,8 @@ export function getWoeidByText(dispatch, text){
 	fetch( url )
 		.then( res => res.json() )
 		.then(
-			data => {
-				console.log(data)
-			},
-			err => {
-				console.log(err)
-			}
+			data => {},
+			err => {}
 		)
 }
 

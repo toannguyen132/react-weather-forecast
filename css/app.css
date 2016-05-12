@@ -112,7 +112,8 @@ body, html {
     top: 50%;
     width: 100%;
     text-align: center;
-    color: #fff; }
+    color: #fff;
+    animation: blink 2s infinite; }
 
 .weather-form {
   background-image: linear-gradient(-178deg, #2454AD 0%, #509AD0 100%); }
@@ -272,6 +273,13 @@ h2, h3, h4, h5, h6 {
     top: 0; }
   100% {
     top: 3%; } }
+@keyframes blink {
+  0% {
+    opacity: 1; }
+  50% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
 .delay-1 {
   -webkit-transition-delay: 100ms;
   -moz-transition-delay: 100ms;

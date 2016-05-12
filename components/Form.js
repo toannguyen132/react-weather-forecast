@@ -3,7 +3,6 @@ import {connect} from 'react-redux'
 import Forecast from './Forecast'
 
 const mapStateToProps = (state, ownProps) => {
-	console.log(ownProps)
 	return{
 		screenClass: state.screen !== 'form' ? 'hidden' : '',
 		ownProps
