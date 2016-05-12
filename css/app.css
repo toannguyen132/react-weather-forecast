@@ -88,6 +88,35 @@ body, html {
 * {
   box-sizing: border-box; }
 
+.weather-app-container {
+  position: relative; }
+
+.screen-container {
+  height: 100vh;
+  width: 100vw;
+  transition: 300ms all;
+  opacity: 1;
+  visibility: visible;
+  top: 0;
+  left: 0;
+  position: absolute; }
+  .screen-container.hidden {
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden; }
+
+.loading-screen {
+  background-image: linear-gradient(-178deg, #2454AD 0%, #509AD0 100%); }
+  .loading-screen h1 {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    color: #fff; }
+
+.weather-form {
+  background-image: linear-gradient(-178deg, #2454AD 0%, #509AD0 100%); }
+
 .weather-container {
   height: 100vh; }
   .weather-container .weather-upper {

@@ -3,7 +3,8 @@ import {WEATHER_DATA_FETCH,
 		WEATHER_DATA_FAILED,
 		CHANGE_FETCH_OPTIONS,
 		GET_CURRENT_LOC,
-		GET_CURRENT_LOC_SUCCESS} from '../constants/ActionTypes';
+		GET_CURRENT_LOC_SUCCESS,
+		SCREEN_CHANGED} from '../constants/ActionTypes';
 
 require('isomorphic-fetch');
 
@@ -51,12 +52,16 @@ export function getCurrentGeoLocation(lat, lon){
 
 export function getWoeidByLocation( callback, fail_callback ){
 	//get geo navigator
-	if ( navigator.geolocation ){
+	console.log('bla bla bla')
+	if ( navigator.geolocation && typeof navigator.geolocation.getCurrentPosition == 'function' ){
 		navigator.geolocation.getCurrentPosition( position => {
 			let lat = position.coords.latitude;
 			let lon = position.coords.longitude;
 			callback( lat, lon );
-		} )
+		}, () => {
+			console.log('get location failed');
+			fail_callback()
+		});
 	} else {
 		fail_callback();
 	}
@@ -90,11 +95,21 @@ export function doFetchWeatherData(dispatch, weatherOptions){
 		.then( res => res.json() )
 		.then( 
 			data => {
-				console.log(data.query.results.channel);
+				dispatch( changeScreen('weather') )
 				dispatch( loadWeatherDataSuccess(refineData( data.query.results.channel )) )
 			},
-			err => dispatch( loadWeatherDataFailed(err) )
+			err => {
+				dispatch( changeScreen('form') )
+				dispatch( loadWeatherDataFailed(err) )
+			}
 		)
+}
+
+export function changeScreen( screen ){
+	return {
+		type: SCREEN_CHANGED,
+		screen: screen
+	}
 }
 
 let refineData = (data) => {

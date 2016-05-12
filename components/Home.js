@@ -9,9 +9,11 @@ import {loadWeatherData,
     getWoeidByText,
     getWoeidByLocation,
     changeLocation,
-    updateLocationOptions} from '../actions/HomeActions'
+    updateLocationOptions,
+    changeScreen} from '../actions/HomeActions'
 import Weather from './Weather'
 import Form from './Form'
+import Loading from './Loading'
 import $ from 'jquery'
 import {makeLocationOptions} from '../reducers/queryOptions'
 import styles from '../css/app.css'
@@ -19,7 +21,8 @@ import styles from '../css/app.css'
 function mapStateToProps(state, ownProps){
   return {
     weatherData: state.weatherData,
-    queryOptions: state.queryOptions
+    queryOptions: state.queryOptions,
+    screen: state.screen
   }
 }
 
@@ -71,7 +74,9 @@ class Home extends Component {
               )
           )
       )
-    }, () => {} )
+    }, () => {
+      dispatch( changeScreen('form') )
+    } )
   }
 
   render() {
@@ -84,12 +89,10 @@ class Home extends Component {
         weather at {queryOptions.location}: -->
     */
     return (
-      <div>
-        { weatherData.mounted ?
-          <Weather data={weatherData.data} />
-        :
-          <Form onSubmit={onSubmit} />
-        }
+      <div className="weather-app-container">
+        <Weather data={weatherData.data} />
+        <Form onSubmit={onSubmit} /> 
+        <Loading />
       </div>
     );
   }

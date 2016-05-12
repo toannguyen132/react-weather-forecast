@@ -10,6 +10,7 @@ const mapStateToProps = (state, ownProps) => {
     let {data} = ownProps;
     return {
         classes: state.weatherData.classes,
+        screen: state.screen,
         backgroundClass() {
             let rain = [1,2,3,4,5,6,7,8,9,10,11,12]
             let hot = []
@@ -38,20 +39,21 @@ class Weather extends Component{
     }
 
     render(){
-        let {data, backgroundClass, classes} = this.props
+        let {data, backgroundClass, classes, screen} = this.props
+        let displayClass = screen == 'weather' ? ' showup ' : ' hidden '
 
         return (
-            <div className={"weather-container " + backgroundClass() + (classes.mounted ? ' showup': '')}>
+            <div className={"screen-container weather-container " + backgroundClass() + (displayClass) }>
                 <div className="weather-upper">
                     <div className="bg"></div>
                     <div className="container">
-                        <h1 className="title location delay-2">{data.location}</h1>
+                        <h1 className="title location delay-7">{data.location}</h1>
                         <div className="weather-right">
                             <div className="inner">
-                                <h3 className="weather-icon subtitle delay-3">
+                                <h3 className="weather-icon subtitle delay-8">
                                     <span className={"icon-" + Conditions[data.condition.code].icon }></span>
                                 </h3>
-                                <h2 className="temperature subtitle delay-4">{data.condition.temp}<sup>&deg;</sup></h2>
+                                <h2 className="temperature subtitle delay-9">{data.condition.temp}<sup>&deg;</sup></h2>
                             </div>
                         </div>
                     </div>
@@ -59,11 +61,11 @@ class Weather extends Component{
                 <div className="weather-lower">
                     <div className="container">
                         <div className="doge">
-                            <div className="doge-circles delay-4">
+                            <div className="doge-circles delay-9">
                                 <div className="circle-big"></div>
                                 <div className="circle-small"></div>
                             </div>
-                            <div className="doge-bg delay-7"></div>
+                            <div className="doge-bg delay-12"></div>
                         </div>
                         <div className="forecasts">
                             <div className="inner">
