@@ -45,24 +45,33 @@ body, html{
 
 .weather-container{
   height: 100vh;
-
-  .weather-upper{
+  .gradient-bg{
     background-color: #2454AD;
-    background-image: linear-gradient(-178deg, #2454AD 0%, #509AD0 100%);
+    background-image: linear-gradient(-178deg, #008DE6 0%, #FFFAEF 70%, #fff 100%);
     color: #fff;
     overflow: hidden;
   }
   &.hot{
-    .weather-upper{
+    .gradient-bg{
       background-color: #EC7759;
-      background-image: linear-gradient(-178deg, #FFDB94 0%, #EC7759 100%);
+      background-image: linear-gradient(-178deg, #D18599 0%, #FFE2D3 70%, #FFF 100%);
     }
   }
   &.rain{
-    .weather-upper{
+    .gradient-bg{
       background-color: #7A808D;
-      background-image: linear-gradient(-178deg, #98A5BD 0%, #7A808D 100%);
+      background-image: linear-gradient(-178deg, #98A5BD 0%, #7A808D 70%, #fff 100%);
     }
+  }
+}
+
+.weather-container{
+  .gradient-bg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
   }
 }
 
@@ -128,7 +137,7 @@ h2, h3, h4, h5, h6{
   position: relative;
   color: #FFFFFF;
   .bg{
-    background-image: url('../img/moun.png');
+    background-image: url('../img/bg.png');
     background-repeat: no-repeat;
     background-size: 50%;
     background-position: 10% bottom;
@@ -153,9 +162,10 @@ h2, h3, h4, h5, h6{
     }
   }
   .weather-icon{
-    font-size: 30px;
+    font-size: 50px;
   }
   .temperature{
+    font-family: 'dino cond';
     font-size: 206.2px;
     line-height: 1;
     letter-spacing: 1.68px;
@@ -175,7 +185,7 @@ h2, h3, h4, h5, h6{
 .forecasts{
   text-align: right;
   .inner{
-    width: 270px;
+    width: 300px;
     display: inline-block;
     text-align: center;;
   }
@@ -206,6 +216,13 @@ h2, h3, h4, h5, h6{
     outline: none;
     font-size: 30px;
     text-align: center;
+  }
+}
+
+.subtitle{
+  font-weight: 400;
+  strong{ 
+    font-weight: 700
   }
 }
 

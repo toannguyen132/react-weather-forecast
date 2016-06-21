@@ -11,6 +11,7 @@ const mapStateToProps = (state, ownProps) => {
     return {
         classes: state.weatherData.classes,
         screen: state.screen,
+        date: new Date(data.condition.date.substr(5, 11)),
         backgroundClass() {
             let rain = [1,2,3,4,5,6,7,8,9,10,11,12]
             let hot = []
@@ -39,21 +40,28 @@ class Weather extends Component{
     }
 
     render(){
-        let {data, backgroundClass, classes, screen} = this.props
+        let {data, backgroundClass, classes, screen, date} = this.props
         let displayClass = screen == 'weather' ? ' showup ' : ' hidden '
+
+        let months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+        let weekday = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thusday', 'Friday', 'Saturday']
 
         return (
             <div className={"screen-container weather-container " + backgroundClass() + (displayClass) }>
+                <div className="gradient-bg"></div>
                 <div className="weather-upper">
                     <div className="bg"></div>
                     <div className="container">
                         <h1 className="title location delay-7">{data.location}</h1>
                         <div className="weather-right">
                             <div className="inner">
-                                <h3 className="weather-icon subtitle delay-8">
-                                    <span className={"icon-" + Conditions[data.condition.code].icon }></span>
+                                <h3 className="subtitle delay-8">
+                                    {weekday[date.getDay()] + ', ' }<strong>{months[date.getMonth()] + ' '+ date.getDate()}</strong>
                                 </h3>
-                                <h2 className="temperature subtitle delay-9">{data.condition.temp}<sup>&deg;</sup></h2>
+                                <h2 className="temperature subtitle delay-9">
+                                    {data.condition.temp}<sup>&deg;</sup>
+                                    <span className={"weather-icon icon-" + Conditions[data.condition.code].icon }></span>
+                                </h2>
                             </div>
                         </div>
                     </div>

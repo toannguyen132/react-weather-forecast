@@ -19,3 +19,13 @@
     url('../fonts/dinot_bold.ttf') format('truetype'),
     url('../fonts/dinot_bold.svg#DINOTBold_0') format('svg');
 }
+
+@font-face {
+    font-family: 'dino cond';
+    src: url('../fonts/DINOTCondMedium_0.eot');
+    src: url('../fonts/DINOTCondMedium_0.eot') format('embedded-opentype'),
+         url('../fonts/DINOTCondMedium_0.woff2') format('woff2'),
+         url('../fonts/DINOTCondMedium_0.woff') format('woff'),
+         url('../fonts/DINOTCondMedium_0.ttf') format('truetype'),
+         url('../fonts/DINOTCondMedium_0.svg#DINOTCondMedium_0') format('svg');
+}
