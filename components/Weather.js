@@ -1,14 +1,16 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import Forecast from './Forecast'
+import GoogleForm from './GoogleForm'
 import Conditions from '../constants/ConditionCode'
 
 var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
 
 // mapStateToProps
 const mapStateToProps = (state, ownProps) => {
-    let {data} = ownProps;
+    let {data} = ownProps
     return {
+        searchValue: '',
         classes: state.weatherData.classes,
         screen: state.screen,
         date: new Date(data.condition.date.substr(5, 11)),
@@ -27,6 +29,17 @@ const mapStateToProps = (state, ownProps) => {
     }
 }
 
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    dispatch: dispatch,
+    onSearch(data) {
+        let value = data.searchValue
+        window.location = 'https://www.google.com/search?q=' + encodeURI(value);
+    }
+  }
+}
+
 class Weather extends Component{
     constructor(props){
         super(props)
@@ -40,7 +53,7 @@ class Weather extends Component{
     }
 
     render(){
-        let {data, backgroundClass, classes, screen, date} = this.props
+        let {data, backgroundClass, classes, screen, date, onSearch, searchValue} = this.props
         let displayClass = screen == 'weather' ? ' showup ' : ' hidden '
 
         let months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
@@ -49,10 +62,15 @@ class Weather extends Component{
         return (
             <div className={"screen-container weather-container " + backgroundClass() + (displayClass) }>
                 <div className="gradient-bg"></div>
+                <div className="g-form">
+                    <GoogleForm onSearch={onSearch}/>
+                </div>
+                <div className="setting-section">
+                    <div className="city item"><a href="#">{data.location} &nbsp;&nbsp; <span className="icon-caret-down"></span></a></div>
+                </div>
                 <div className="weather-upper">
                     <div className="bg"></div>
                     <div className="container">
-                        <h1 className="title location delay-7">{data.location}</h1>
                         <div className="weather-right">
                             <div className="inner">
                                 <h3 className="subtitle delay-8">
@@ -89,8 +107,4 @@ class Weather extends Component{
     }
 }
 
-// const Weather = ({data, backgroundClass}) => (
-//
-// )
-
-export default connect(mapStateToProps)(Weather)
+export default connect(mapStateToProps, mapDispatchToProps)(Weather)

@@ -91,7 +91,7 @@ class Home extends Component {
     return (
       <div className="weather-app-container">
         <Weather data={weatherData.data} />
-        <Form onSubmit={onSubmit} /> 
+        <Form onSubmit={onSubmit} /> x
         <Loading />
       </div>
     );

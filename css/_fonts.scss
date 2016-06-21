@@ -24,29 +24,11 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-cloud-light:before {
-    content: "\e911";
+.icon-caret-down:before {
+    content: "\e913";
 }
-.icon-rain-hail:before {
-    content: "\e910";
-}
-.icon-cloud-moon:before {
-    content: "\e90a";
-}
-.icon-cloud-rain:before {
-    content: "\e90b";
-}
-.icon-cloud-snow:before {
-    content: "\e90c";
-}
-.icon-moon-cloud-rain:before {
-    content: "\e90d";
-}
-.icon-moon-cloud-snow:before {
-    content: "\e90e";
-}
-.icon-partly-cloud:before {
-    content: "\e90f";
+.icon-search:before {
+    content: "\e912";
 }
 .icon-cloud-hail:before {
     content: "\e900";
@@ -78,3 +60,28 @@
 .icon-wind:before {
     content: "\e909";
 }
+.icon-cloud-moon:before {
+    content: "\e90a";
+}
+.icon-cloud-rain:before {
+    content: "\e90b";
+}
+.icon-cloud-snow:before {
+    content: "\e90c";
+}
+.icon-moon-cloud-rain:before {
+    content: "\e90d";
+}
+.icon-moon-cloud-snow:before {
+    content: "\e90e";
+}
+.icon-partly-cloud:before {
+    content: "\e90f";
+}
+.icon-rain-hail:before {
+    content: "\e910";
+}
+.icon-cloud-light:before {
+    content: "\e911";
+}
+
