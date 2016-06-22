@@ -1,15 +1,20 @@
 @font-face {
-  font-family: 'dino';
+  font-family: 'dinot';
   font-weight: 400;
   src: url("../fonts/dinot_medium.eot");
   src: url("../fonts/dinot_medium.eot") format("embedded-opentype"), url("../fonts/dinot_medium.woff2") format("woff2"), url("../fonts/dinot_medium.woff") format("woff"), url("../fonts/dinot_medium.ttf") format("truetype"), url("../fonts/dinot_medium.svg#DINOTMedium_0") format("svg"); }
 @font-face {
-  font-family: 'dino';
+  font-family: 'dinot';
   font-weight: 700;
   src: url("../fonts/dinot_bold.eot");
   src: url("../fonts/dinot_bold.eot") format("embedded-opentype"), url("../fonts/dinot_bold.woff2") format("woff2"), url("../fonts/dinot_bold.woff") format("woff"), url("../fonts/dinot_bold.ttf") format("truetype"), url("../fonts/dinot_bold.svg#DINOTBold_0") format("svg"); }
 @font-face {
-  font-family: 'dino cond';
+  font-family: 'dinot';
+  font-weight: 300;
+  src: url("../fonts/dinot_reg.eot");
+  src: url("../fonts/dinot_reg.eot") format("embedded-opentype"), url("../fonts/dinot_reg.woff2") format("woff2"), url("../fonts/dinot_reg.woff") format("woff"), url("../fonts/dinot_reg.ttf") format("truetype"), url("../fonts/dinot_reg.svg#dinot_reg") format("svg"); }
+@font-face {
+  font-family: 'dinot cond';
   src: url("../fonts/DINOTCondMedium_0.eot");
   src: url("../fonts/DINOTCondMedium_0.eot") format("embedded-opentype"), url("../fonts/DINOTCondMedium_0.woff2") format("woff2"), url("../fonts/DINOTCondMedium_0.woff") format("woff"), url("../fonts/DINOTCondMedium_0.ttf") format("truetype"), url("../fonts/DINOTCondMedium_0.svg#DINOTCondMedium_0") format("svg"); }
 @font-face {
@@ -95,7 +100,7 @@
   content: "\e911"; }
 
 body, html {
-  font-family: 'dino', "Hevetica", "Arial", sans-serif;
+  font-family: 'dinot', "Hevetica", "Arial", sans-serif;
   margin: 0; }
 
 * {
@@ -218,20 +223,15 @@ h2, h3, h4, h5, h6 {
   .weather-upper .location {
     font-size: 25px;
     margin: 0 0 30px 0; }
-  .weather-upper .weather-right {
-    text-align: right; }
-    .weather-upper .weather-right .inner {
-      width: 270px;
-      display: inline-block;
-      text-align: center; }
   .weather-upper .weather-icon {
     font-size: 50px; }
   .weather-upper .temperature {
-    font-family: 'dino cond';
+    font-family: 'dinot cond';
     font-size: 206.2px;
     line-height: 1;
     letter-spacing: 1.68px;
-    text-shadow: 9px 10px 13px rgba(20, 20, 20, 0.13); }
+    text-shadow: 9px 10px 13px rgba(20, 20, 20, 0.13);
+    margin-left: -8px; }
     .weather-upper .temperature sup {
       font-size: 40%;
       font-weight: 400;
@@ -240,16 +240,28 @@ h2, h3, h4, h5, h6 {
 .weather-lower {
   height: 35vh; }
 
-.forecasts {
+.weather-right {
   text-align: right; }
-  .forecasts .inner {
-    width: 300px;
-    display: inline-block;
-    text-align: center; }
+
+.weather-info {
+  display: inline-block;
+  text-align: left; }
+
+.weather-date {
+  font-size: 29px;
+  font-weight: 300; }
+  .weather-date strong {
+    font-weight: 700; }
+
+.forecasts {
+  margin-left: -15px;
+  margin-right: -15px; }
   .forecasts .forecast-item {
     display: inline-block;
     padding: 30px 15px;
     text-align: center; }
+    .forecasts .forecast-item .day {
+      text-transform: uppercase; }
     .forecasts .forecast-item > div {
       margin: 10px 0; }
     .forecasts .forecast-item .icon {
@@ -267,11 +279,6 @@ h2, h3, h4, h5, h6 {
   outline: none;
   font-size: 30px;
   text-align: center; }
-
-.subtitle {
-  font-weight: 400; }
-  .subtitle strong {
-    font-weight: 700; }
 
 .container {
   padding-left: 15px;

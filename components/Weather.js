@@ -10,6 +10,7 @@ var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
 // mapStateToProps
 const mapStateToProps = (state, ownProps) => {
     let {data} = ownProps
+
     return {
         classes: state.weatherData.classes,
         screen: state.screen,
@@ -59,8 +60,6 @@ class Weather extends Component{
 
     changeLocation(e) {
         e.preventDefault()
-
-
     }
 
     render(){
@@ -79,18 +78,26 @@ class Weather extends Component{
                 <div className="setting-section">
                     <div className="city item"><a href="#" onClick={onChangeLocation}>{data.location} &nbsp;&nbsp; <span className="icon-caret-down"></span></a></div>
                 </div>
+
                 <div className="weather-upper">
                     <div className="bg"></div>
                     <div className="container">
                         <div className="weather-right">
-                            <div className="inner">
-                                <h3 className="subtitle delay-8">
+                            <div className="weather-info">
+                                <h3 className="subtitle weather-date delay-8">
                                     {weekday[date.getDay()] + ', ' }<strong>{months[date.getMonth()] + ' '+ date.getDate()}</strong>
                                 </h3>
                                 <h2 className="temperature subtitle delay-9">
                                     {data.condition.temp}<sup>&deg;</sup>
                                     <span className={"weather-icon icon-" + Conditions[data.condition.code].icon }></span>
                                 </h2>
+                                <div className="forecasts delay-10">
+                                    <div className="inner">
+                                        {data.forecast.map((forecast, key) =>
+                                            <Forecast key={key} index={key} forecast={forecast}/>
+                                        )}
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -98,18 +105,11 @@ class Weather extends Component{
                 <div className="weather-lower">
                     <div className="container">
                         <div className="doge">
-                            <div className="doge-circles delay-9">
+                            <div className="doge-circles delay-10">
                                 <div className="circle-big"></div>
                                 <div className="circle-small"></div>
                             </div>
                             <div className="doge-bg delay-12"></div>
-                        </div>
-                        <div className="forecasts">
-                            <div className="inner">
-                                {data.forecast.map((forecast, key) =>
-                                    <Forecast key={key} forecast={forecast}/>
-                                )}
-                            </div>
                         </div>
                     </div>
                 </div>

@@ -1,5 +1,5 @@
 @font-face {
-    font-family: 'dino';
+    font-family: 'dinot';
     font-weight: 400;
     src: url('../fonts/dinot_medium.eot');
     src: url('../fonts/dinot_medium.eot') format('embedded-opentype'),
@@ -10,7 +10,7 @@
 }
 
 @font-face {
-    font-family: 'dino';
+    font-family: 'dinot';
     font-weight: 700;
     src: url('../fonts/dinot_bold.eot');
     src: url('../fonts/dinot_bold.eot') format('embedded-opentype'),
@@ -21,7 +21,19 @@
 }
 
 @font-face {
-    font-family: 'dino cond';
+    font-family: 'dinot';
+    font-weight: 300;
+    src: url('../fonts/dinot_reg.eot');
+    src: url('../fonts/dinot_reg.eot') format('embedded-opentype'),
+         url('../fonts/dinot_reg.woff2') format('woff2'),
+         url('../fonts/dinot_reg.woff') format('woff'),
+         url('../fonts/dinot_reg.ttf') format('truetype'),
+         url('../fonts/dinot_reg.svg#dinot_reg') format('svg');
+}
+
+
+@font-face {
+    font-family: 'dinot cond';
     src: url('../fonts/DINOTCondMedium_0.eot');
     src: url('../fonts/DINOTCondMedium_0.eot') format('embedded-opentype'),
          url('../fonts/DINOTCondMedium_0.woff2') format('woff2'),

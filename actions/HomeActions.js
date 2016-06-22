@@ -108,7 +108,7 @@ export function changeScreen( screen ){
 
 let refineData = (data) => {
 	// fore yahoo weather
-	let forecast = data.item.forecast.splice(1, 5);
+	let forecast = data.item.forecast.splice(0, 5);
 	const refineData = {
 		location: data.location.city,
 		weatherClassName: 'hot',
