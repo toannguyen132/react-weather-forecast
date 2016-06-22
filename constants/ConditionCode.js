@@ -84,19 +84,19 @@ const Conditions = {
         text: 'haze'
     },
     "22" : {
-        icon: 'windy',
+        icon: 'wind',
         text: 'smoky'
     },
     "23" : {
-        icon: 'windy',
+        icon: 'wind',
         text: 'blustery'
     },
     "24" : {
-        icon: 'windy',
+        icon: 'wind',
         text: 'windy'
     },
     "25" : {
-        icon: 'windy',
+        icon: 'wind',
         text: 'cold'
     },
     "26" : {
