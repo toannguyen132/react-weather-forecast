@@ -24,67 +24,72 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-caret-down:before {
-    content: "\e913";
+.icon-heavy-snow:before {
+    content: "\e906";
+}
+.icon-thunderstorm:before {
+    content: "\e92c";
+}
+.icon-partly-cloud-night:before {
+    content: "\e90d";
+}
+.icon-clear-night:before {
+    content: "\e90e";
+}
+.icon-foggy:before {
+    content: "\e910";
+}
+.icon-hail:before {
+    content: "\e91a";
+}
+.icon-mostly-cloud-night:before {
+    content: "\e920";
+}
+.icon-snow-shower:before {
+    content: "\e922";
+}
+.icon-tornado:before {
+    content: "\e92f";
+}
+.icon-windy:before {
+    content: "\e930";
+}
+.icon-sunny:before {
+    content: "\e900";
+}
+.icon-cloud:before {
+    content: "\e901";
+}
+.icon-heavy-rain:before {
+    content: "\e902";
+}
+.icon-light-rain:before {
+    content: "\e903";
+}
+.icon-snow:before {
+    content: "\e904";
+}
+.icon-sunny-cloud:before {
+    content: "\e905";
+}
+.icon-sunny-heavy-rain:before {
+    content: "\e908";
+}
+.icon-sunny-light-rain:before {
+    content: "\e90c";
+}
+.icon-sunny-snow:before {
+    content: "\e90f";
+}
+.icon-sunny-storm:before {
+    content: "\e914";
 }
 .icon-search:before {
     content: "\e912";
 }
-.icon-cloud-hail:before {
-    content: "\e900";
-}
-.icon-cloud-sun-19:before {
-    content: "\e901";
-}
-.icon-cloud:before {
-    content: "\e902";
-}
-.icon-hurricane-45:before {
-    content: "\e903";
-}
-.icon-light:before {
-    content: "\e904";
-}
-.icon-moon:before {
-    content: "\e905";
-}
-.icon-rain:before {
-    content: "\e906";
-}
-.icon-snow:before {
-    content: "\e907";
-}
-.icon-sunny:before {
-    content: "\e908";
-}
 .icon-wind:before {
     content: "\e909";
 }
-.icon-windy:before {
-    content: "\e909";
+.icon-caret-down:before {
+    content: "\e913";
 }
-.icon-cloud-moon:before {
-    content: "\e90a";
-}
-.icon-cloud-rain:before {
-    content: "\e90b";
-}
-.icon-cloud-snow:before {
-    content: "\e90c";
-}
-.icon-moon-cloud-rain:before {
-    content: "\e90d";
-}
-.icon-moon-cloud-snow:before {
-    content: "\e90e";
-}
-.icon-partly-cloud:before {
-    content: "\e90f";
-}
-.icon-rain-hail:before {
-    content: "\e910";
-}
-.icon-cloud-light:before {
-    content: "\e911";
-}
-

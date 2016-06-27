@@ -8,11 +8,11 @@ const Conditions = {
         text: 'hurricane'
     },
     "3" : {
-        icon: 'cloud-light',
+        icon: 'thunderstorm',
         text: 'Severe Thunderstorms'
     },
     "4" : {
-        icon: 'cloud-light',
+        icon: 'thunderstorm',
         text: 'thunderstorms'
     },
     "5" : {
