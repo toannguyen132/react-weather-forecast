@@ -36,6 +36,9 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
 
+.icon-thunder:before {
+  content: "\e907"; }
+
 .icon-heavy-snow:before {
   content: "\e906"; }
 
@@ -160,8 +163,8 @@ body, html {
     background-image: linear-gradient(-178deg, #D18599 0%, #FFE2D3 70%, #FFF 100%); }
   .weather-container.rain .gradient-bg {
     background-color: #7A808D;
-    background-image: -webkit-linear-gradient(268deg, #98A5BD 0%, #7A808D 70%, #fff 100%);
-    background-image: linear-gradient(-178deg, #98A5BD 0%, #7A808D 70%, #fff 100%); }
+    background-image: -webkit-linear-gradient(268deg, #667191 0%, #DAE0EC 70%, #fff 100%);
+    background-image: linear-gradient(-178deg, #667191 0%, #DAE0EC 70%, #fff 100%); }
 
 .weather-container .gradient-bg {
   position: absolute;
@@ -234,6 +237,9 @@ h2, h3, h4, h5, h6 {
     left: 0;
     -webkit-transition: all 1s;
             transition: all 1s; }
+  .weather-upper > .container {
+    position: relative;
+    z-index: 99; }
   .weather-upper .location {
     font-size: 25px;
     margin: 0 0 30px 0; }

@@ -19,12 +19,17 @@ const mapStateToProps = (state, ownProps) => {
             let rain = [1,2,3,4,5,6,7,8,9,10,11,12]
             let hot = []
             let normal = []
-            if ( rain.indexOf(data.condition.code) >= 0 ){
+
+            console.log(rain)
+            console.log(data.condition.code)
+            console.log(rain.indexOf(parseInt(data.condition.code)) )
+
+            if ( rain.indexOf(parseInt(data.condition.code)) >= 0 ){
                 return 'rain'
-            } else if ( data.condition.temp > 32 ){
+            } else if ( data.condition.temp > 30 ){
                 return 'hot'
             } else {
-                return 'normal'
+                return 'fair'
             }
         }
     }
@@ -89,7 +94,7 @@ class Weather extends Component{
                                 </h3>
                                 <h2 className="temperature subtitle delay-9">
                                     {data.condition.temp}<sup>&deg;</sup>
-                                    <span className={"weather-icon icon-" + Conditions[data.condition.code].icon }></span>
+                                    <span className={"weather-icon icon-" + Conditions[data.condition.code].icon } title={Conditions[data.condition.code].text}></span>
                                 </h2>
                                 <div className="forecasts delay-10">
                                     <div className="inner">

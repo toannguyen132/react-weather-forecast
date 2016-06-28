@@ -1,191 +1,191 @@
 const Conditions = {
     "1" : {
-        icon: 'hurricane-45',
-        text: 'tropical storm'
+        icon: 'tornado',
+        text: 'Tropical storm'
     },
     "2" : {
-        icon: 'hurricane-45',
-        text: 'hurricane'
+        icon: 'tornado',
+        text: 'Hurricane'
     },
     "3" : {
-        icon: 'thunderstorm',
+        icon: 'sunny-storm',
         text: 'Severe Thunderstorms'
     },
     "4" : {
         icon: 'thunderstorm',
-        text: 'thunderstorms'
+        text: 'Thunderstorms'
     },
     "5" : {
         icon: 'snow',
-        text: 'mixed rain and snow'
+        text: 'Mixed rain and snow'
     },
     "6" : {
         icon: 'snow',
-        text: 'mixed rain and sleet'
+        text: 'Mixed rain and sleet'
     },
     "7" : {
         icon: 'snow',
-        text: 'mixed snow and sleet'
+        text: 'Mixed snow and sleet'
     },
     "8" : {
-        icon: 'rain',
-        text: 'freezing drizzle'
+        icon: 'light-rain',
+        text: 'Freezing drizzle'
     },
     "9" : {
-        icon: 'rain',
-        text: 'drizzle'
+        icon: 'light-rain',
+        text: 'Drizzle'
     },
     "10" : {
-        icon: 'rain',
-        text: 'freezing rain'
+        icon: 'heavy-rain',
+        text: 'Freezing rain'
     },
     "11" : {
-        icon: 'rain',
-        text: 'showers'
+        icon: 'heavy-rain',
+        text: 'Showers'
     },
     "12" : {
-        icon: 'rain',
-        text: 'showers'
+        icon: 'heavy-rain',
+        text: 'Showers'
     },
     "13" : {
         icon: 'snow',
-        text: 'snow flurries'
+        text: 'Snow flurries'
     },
     "14" : {
         icon: 'snow',
-        text: 'light snow showers'
+        text: 'Light snow showers'
     },
     "15" : {
         icon: 'snow',
-        text: 'blowing snow'
+        text: 'Blowing snow'
     },
     "16" : {
         icon: 'snow',
-        text: 'light snow showers'
+        text: 'Light snow showers'
     },
     "17" : {
-        icon: 'rain',
-        text: 'hail'
+        icon: 'hail',
+        text: 'Hail'
     },
     "18" : {
         icon: 'snow',
-        text: 'sleet'
+        text: 'Sleet'
     },
     "19" : {
-        icon: 'rain',
-        text: 'dust'
+        icon: 'light-rain',
+        text: 'Dust'
     },
     "20" : {
-        icon: 'rain',
-        text: 'foggy'
+        icon: 'foggy',
+        text: 'Foggy'
     },
     "21" : {
-        icon: 'rain',
-        text: 'haze'
+        icon: 'foggy',
+        text: 'Haze'
     },
     "22" : {
-        icon: 'wind',
-        text: 'smoky'
+        icon: 'windy',
+        text: 'Smoky'
     },
     "23" : {
-        icon: 'wind',
-        text: 'blustery'
+        icon: 'windy',
+        text: 'Blustery'
     },
     "24" : {
-        icon: 'wind',
-        text: 'windy'
+        icon: 'windy',
+        text: 'Windy'
     },
     "25" : {
-        icon: 'wind',
-        text: 'cold'
+        icon: 'windy',
+        text: 'Cold'
     },
     "26" : {
         icon: 'cloud',
-        text: 'cloudy'
+        text: 'Cloudy'
     },
     "27" : {
-        icon: 'cloud-moon',
-        text: 'mostly cloudy' // night
+        icon: 'partly-cloud-night',
+        text: 'Mostly cloudy' // night
     },
     "28" : {
-        icon: 'cloud-sun-19',
-        text: 'mostly cloudy' // day
+        icon: 'sunny-cloud',
+        text: 'Mostly cloudy' // day
     },
     "29" : {
-        icon: 'cloud-moon',
-        text: 'partly cloudy' // night
+        icon: 'partly-cloud-night',
+        text: 'Partly cloudy' // night
     },
     "30" : {
-        icon: 'cloud-sun-19',
-        text: 'partly cloudy' // day
+        icon: 'sunny-cloud',
+        text: 'Partly cloudy' // day
     },
     "31" : {
-        icon: 'moon', // night
-        text: 'clear'
+        icon: 'clear-night', // night
+        text: 'Clear'
     },
     "32" : {
         icon: 'sunny',
-        text: 'sunny'
+        text: 'Sunny'
     },
     "33" : {
-        icon: 'moon', // night
-        text: 'fair'
+        icon: 'mostly-cloud-night', // night
+        text: 'Fair'
     },
     "34" : {
-        icon: 'sunny', // day
-        text: 'fair'
+        icon: 'sunny-cloud', // day
+        text: 'Fair'
     },
     "35" : {
         icon: 'rain',
-        text: 'mixed rain and hail'
+        text: 'Mixed rain and hail'
     },
     "36" : {
         icon: 'sunny',
-        text: 'hot'
+        text: 'Hot'
     },
     "37" : {
-        icon: 'light',
-        text: 'isolated thunderstorms'
+        icon: 'thunder',
+        text: 'Isolated thunderstorms'
     },
     "38" : {
-        icon: 'light',
-        text: 'scattered thunderstorms'
+        icon: 'thunder',
+        text: 'Scattered thunderstorms'
     },
     "39" : {
-        icon: 'light',
-        text: 'scattered thunderstorms'
+        icon: 'thunder',
+        text: 'Scattered thunderstorms'
     },
     "40" : {
-        icon: 'snow',
-        text: 'scattered showers'
+        icon: 'snow-shower',
+        text: 'Scattered showers'
     },
     "41" : {
         icon: 'snow',
-        text: 'heavy snow'
+        text: 'Heavy snow'
     },
     "42" : {
-        icon: 'cloud-snow',
-        text: 'scattered snow showers'
+        icon: 'snow',
+        text: 'Scattered snow showers'
     },
     "43" : {
         icon: 'rain',
-        text: 'heavy snow'
+        text: 'Heavy snow'
     },
     "44" : {
-        icon: 'partly-cloud',
-        text: 'partly cloudy'
+        icon: 'Cloud',
+        text: 'Partly cloudy'
     },
     "45" : {
-        icon: 'light',
-        text: 'thundershowers'
+        icon: 'thunderstorm',
+        text: 'Thundershowers'
     },
     "46" : {
-        icon: 'rain-hail',
-        text: 'snow showers'
+        icon: 'hail',
+        text: 'Snow showers'
     },
     "47" : {
-        icon: 'light',
-        text: 'isolated thundershowers'
+        icon: 'thunder',
+        text: 'Isolated thundershowers'
     }
 }
 

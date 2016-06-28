@@ -24,6 +24,9 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-thunder:before {
+    content: "\e907";
+}
 .icon-heavy-snow:before {
     content: "\e906";
 }
@@ -93,3 +96,4 @@
 .icon-caret-down:before {
     content: "\e913";
 }
+
