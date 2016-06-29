@@ -86,7 +86,7 @@ class Home extends Component {
   componentDidMount() {
     let {dispatch, queryOptions} = this.props
     let $this = this;
-    let lastSetting = cookie.load('ls')
+    let lastSetting = loadSetting();
 
     // get coordinate
     getWoeidByLocation( (lat, lon) => {
