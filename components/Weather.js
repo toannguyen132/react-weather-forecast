@@ -65,7 +65,8 @@ class Weather extends Component{
     }
 
     onChangeMeasurement(e){
-        this.props.changeMeasure(  );
+        e.preventDefault()
+        this.props.changeMeasure(  )
     }
 
     render(){
