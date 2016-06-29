@@ -1,10 +1,31 @@
-import * as ActionTypes from '../constants/ActionTypes';
+import * as ActionTypes from '../constants/ActionTypes'
+import cookie from 'react-cookie'
 
 let defaultOptions = {
 	location: '',
 	geolocation: '',
 	text: '',
 	woeid: 56249853 // new york
+}
+
+export function loadSetting(){
+	let s = cookie.load('ls') || {}
+	return Object.assign({}, {
+		location: '',
+		geolocation: { lat: '', lon: ''},
+		measure: 'c',
+	} , s);
+}
+export function updateSetting(setting){
+	let s = setting || {}
+
+	s = Object.assign({}, {
+		location: '',
+		geolocation: { lat: '', lon: ''},
+		measure: 'c',
+	} , s);
+
+	cookie.save('ls', s)
 }
 
 export function makeLocationOptions(args){
@@ -18,6 +39,7 @@ export function makeLocationOptions(args){
 
 	return Object.assign({}, {
 		location: '',
+		measure: 'f',
 		geolocation: '',
 		text: text,
 		woeid: 56249853 // new york
@@ -36,8 +58,6 @@ function makeQueryText(options){
 function queryOptions(state = defaultOptions, action) {
 	switch(action.type){
 		case 'CHANGE_FETCH_OPTIONS': 
-			// let text = makeQueryText(action);
-			console.log(action)
 			return Object.assign({}, state, action)
 		default:
 			return state;

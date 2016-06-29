@@ -15,8 +15,9 @@ import Weather from './Weather'
 import Form from './Form'
 import Loading from './Loading'
 import $ from 'jquery'
-import {makeLocationOptions} from '../reducers/queryOptions'
+import {makeLocationOptions, loadSetting, updateSetting} from '../reducers/queryOptions'
 import styles from '../css/app.css'
+import cookie from 'react-cookie'
 
 function mapStateToProps(state, ownProps){
   return {
@@ -48,7 +49,30 @@ function mergeProps(stateProps, dispatchProps, ownProps){
       event.preventDefault();
       let location = $(event.currentTarget).find('input[type=text]').val()
 
+      // save location in cookie
+      let setting = cookie.load('ls')
+
+      if ( typeof setting != 'undefined' && typeof setting.location != 'undefined'){
+        setting.location = location
+      }
+      else {
+        setting = Object.assign({}, { 'location': location, 'measure': 'c' })
+      }
+
       doFetchWeatherData( dispatch, dispatch( updateLocationOptions( makeLocationOptions( {'location': location } ) ) ) )
+    },
+    
+    changeMeasure(measure){
+      let s = loadSetting()
+      if ( !measure ){
+        s.measure = s.measure == 'c' ? 'f' : 'c'
+      } else {
+        s.measure = measure
+      }
+
+      let options = makeLocationOptions( s )
+
+      doFetchWeatherData( dispatch, dispatch( updateLocationOptions( options ) ) )
     }
   })
 }
@@ -62,25 +86,35 @@ class Home extends Component {
   componentDidMount() {
     let {dispatch, queryOptions} = this.props
     let $this = this;
+    let lastSetting = cookie.load('ls')
+
     // get coordinate
     getWoeidByLocation( (lat, lon) => {
+      let options = makeLocationOptions( {
+        geolocation: {lat: lat, lon: lon}
+      } )
+      options = Object.assign({},options, { measure: lastSetting.measure })
+
       doFetchWeatherData(
           dispatch,
           dispatch(
-              updateLocationOptions(
-                  makeLocationOptions( {
-                    geolocation: {lat: lat, lon: lon}
-                  } )
-              )
+              updateLocationOptions( options )
           )
       )
-    }, () => {
-      dispatch( changeScreen('form') )
+    }, () => { // false
+      if ( lastSetting.location ){
+        let options = makeLocationOptions( {'location': lastSetting.location } )
+        options = Object.assign({}, options, { measure: lastSetting.measure })
+
+        doFetchWeatherData( dispatch, dispatch( updateLocationOptions( options ) ) )
+      } else {
+        dispatch( changeScreen('form') )  
+      }
     } )
   }
 
   render() {
-    const {weatherData, queryOptions, request, dispatch, onSubmit, onChangeLocation} = this.props
+    const {weatherData, queryOptions, request, dispatch, onSubmit, onChangeLocation, changeMeasure} = this.props
     /*
     <!--<p>
           <input type="text" {...queryOptions.location} onChange={onChangeLocation}/>
@@ -90,7 +124,7 @@ class Home extends Component {
     */
     return (
       <div className="weather-app-container">
-        <Weather data={weatherData.data} />
+        <Weather data={weatherData.data} changeMeasure={changeMeasure} />
         <Form onSubmit={onSubmit} /> x
         <Loading />
       </div>

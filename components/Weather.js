@@ -20,14 +20,12 @@ const mapStateToProps = (state, ownProps) => {
             let hot = []
             let normal = []
 
-            console.log(rain)
-            console.log(data.condition.code)
-            console.log(rain.indexOf(parseInt(data.condition.code)) )
-
             if ( rain.indexOf(parseInt(data.condition.code)) >= 0 ){
                 return 'rain'
             } else if ( data.condition.temp > 30 ){
                 return 'hot'
+            } else if ( data.condition.temp < 10 ) {
+                return 'snow'
             } else {
                 return 'fair'
             }
@@ -44,7 +42,6 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         window.location = 'https://www.google.com/search?q=' + encodeURI(value);
     },
     onChangeLocation(e) {
-        console.log(e);
         e.preventDefault();
         dispatch( changeScreen("form") )
     }
@@ -67,12 +64,18 @@ class Weather extends Component{
         e.preventDefault()
     }
 
+    onChangeMeasurement(e){
+        this.props.changeMeasure(  );
+    }
+
     render(){
-        let {data, backgroundClass, classes, screen, date, onSearch, searchValue, onChangeLocation} = this.props
+        let {data, backgroundClass, classes, screen, date, onSearch, searchValue, onChangeLocation, changeMeasure} = this.props
         let displayClass = screen == 'weather' ? ' showup ' : ' hidden '
 
         let months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
         let weekday = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thusday', 'Friday', 'Saturday']
+
+        let handleClick = this.onChangeMeasurement.bind(this);
 
         return (
             <div className={"screen-container weather-container " + backgroundClass() + (displayClass) }>
@@ -82,6 +85,7 @@ class Weather extends Component{
                 </div>
                 <div className="setting-section">
                     <div className="city item"><a href="#" onClick={onChangeLocation}>{data.location} &nbsp;&nbsp; <span className="icon-caret-down"></span></a></div>
+                    <div className="measure item"><a href="#" onClick={handleClick}>C</a></div>
                 </div>
 
                 <div className="weather-upper">

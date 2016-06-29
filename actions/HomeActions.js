@@ -6,6 +6,8 @@ import {WEATHER_DATA_FETCH,
 		GET_CURRENT_LOC_SUCCESS,
 		SCREEN_CHANGED} from '../constants/ActionTypes';
 
+import {loadSetting, updateSetting} from '../reducers/queryOptions'
+
 require('isomorphic-fetch');
 
 export function loadWeatherData(query = '') {
@@ -78,12 +80,19 @@ export function getWoeidByText(dispatch, text){
 }
 
 export function doFetchWeatherData(dispatch, weatherOptions){
-	let {text} = weatherOptions.options;
+	let {text, measure} = weatherOptions.options;
 
-	let query = 'Select * from weather.forecast where u = "c" and woeid IN (select woeid from geo.places(1) where text="'+text+'")';
+	let query = 'Select * from weather.forecast where u = "'+measure+'" and woeid IN (select woeid from geo.places(1) where text="'+text+'")';
 	let url = 'https://query.yahooapis.com/v1/public/yql?q=' + encodeURI(query) + '&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys';
 
 	dispatch( loadWeatherData() );
+
+	// save option
+	updateSetting({
+		location: weatherOptions.options.location,
+		geolocation: weatherOptions.options.geolocation,
+		measure: measure
+	})
 
 	fetch( url )
 		.then( res => res.json() )
