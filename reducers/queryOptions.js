@@ -4,6 +4,7 @@ import cookie from 'react-cookie'
 let defaultOptions = {
 	location: '',
 	geolocation: '',
+	measure: '',
 	text: '',
 	woeid: 56249853 // new york
 }

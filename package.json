@@ -1,7 +1,7 @@
 {
-  "name": "redux-todos-example",
-  "version": "0.0.0",
-  "description": "Redux Todos example",
+  "name": "doge-project",
+  "version": "0.0.9",
+  "description": "Doge Project",
   "scripts": {
     "start": "node server.js",
     "test": "cross-env NODE_ENV=test mocha --recursive --compilers js:babel-register --require ./test/setup.js",

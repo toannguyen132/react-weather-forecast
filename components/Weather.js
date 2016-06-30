@@ -10,6 +10,7 @@ var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
 // mapStateToProps
 const mapStateToProps = (state, ownProps) => {
     let {data} = ownProps
+    console.log(state);
 
     return {
         classes: state.weatherData.classes,
@@ -77,6 +78,8 @@ class Weather extends Component{
         let weekday = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thusday', 'Friday', 'Saturday']
 
         let handleClick = this.onChangeMeasurement.bind(this);
+        let temp = typeof data.units != 'undefined' ? data.units.temp : 'C';
+        let switchClass = temp == 'F' ? 'on' : '' ;
 
         return (
             <div className={"screen-container weather-container " + backgroundClass() + (displayClass) }>
@@ -86,7 +89,14 @@ class Weather extends Component{
                 </div>
                 <div className="setting-section">
                     <div className="city item"><a href="#" onClick={onChangeLocation}>{data.location} &nbsp;&nbsp; <span className="icon-caret-down"></span></a></div>
-                    <div className="measure item"><a href="#" onClick={handleClick}>C</a></div>
+                    <div className="measure item">
+                        <a href="#" onClick={handleClick}>
+                            <span className={'switch ' + switchClass}>
+                                <span className="text"><span className="temp"></span>{temp}</span>
+                                <span className="switch-button"></span>
+                            </span>
+                        </a>
+                    </div>
                 </div>
 
                 <div className="weather-upper">

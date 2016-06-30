@@ -322,3 +322,76 @@ h2, h3, h4, h5, h6{
   background-size: contain;
   background-repeat: no-repeat;
 }
+
+// switcher 
+.switch{
+  $switch-size: 24px;
+  $button-size: $switch-size - 4;
+  display: inline-block;
+  width: $switch-size*2;
+  height: $switch-size;
+  position: relative;
+  &:before{
+    content: "";
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: $switch-size;
+    background-color: #000;
+    opacity: 0.3;
+  }
+  .text{
+    color: #fff;
+    display: inline-block;
+    position: absolute;
+    width: $button-size;
+    height: $button-size;
+    text-align: center;
+    right: 2px;
+    top: 1px;
+    font-size: 14px;
+    vertical-align: bottom;
+    line-height: 20px;
+    .temp{
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      border: 1px solid #fff;
+      border-radius: 4px;
+      top: 6px;
+      left: 0;
+    }
+  }
+  .switch-button{
+    width: $button-size;
+    height: $button-size;
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    background-color: #fff;
+    border-radius: $button-size;
+    transition: all 300ms;
+    transform: translate(0);
+  }
+
+  &.on{
+    .switch-button{
+      transform: translate($switch-size, 0);
+    }
+    .text{
+      left: 5px;
+    }
+  }
+}
+
+.measure{
+  margin-left: 30px;
+  vertical-align: middle;
+
+  .switch{
+    
+  }
+}
