@@ -10,7 +10,6 @@ var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
 // mapStateToProps
 const mapStateToProps = (state, ownProps) => {
     let {data} = ownProps
-    console.log(state);
 
     return {
         classes: state.weatherData.classes,
@@ -23,9 +22,9 @@ const mapStateToProps = (state, ownProps) => {
 
             if ( rain.indexOf(parseInt(data.condition.code)) >= 0 ){
                 return 'rain'
-            } else if ( data.condition.temp > 30 ){
+            } else if ( (data.condition.temp >= 30 && data.units.temp == 'c') ||  (data.condition.temp >= 86 && data.units.temp == 'f')){
                 return 'hot'
-            } else if ( data.condition.temp < 10 ) {
+            } else if ( (data.condition.temp < 10 && data.units.temp == 'c') ||  (data.condition.temp < 50 && data.units.temp == 'f') ) {
                 return 'snow'
             } else {
                 return 'fair'
@@ -84,6 +83,8 @@ class Weather extends Component{
         return (
             <div className={"screen-container weather-container " + backgroundClass() + (displayClass) }>
                 <div className="gradient-bg"></div>
+                <div className="fs-bg rain-bg">
+                </div>
                 <div className="g-form">
                     <GoogleForm onSearch={onSearch}/>
                 </div>
