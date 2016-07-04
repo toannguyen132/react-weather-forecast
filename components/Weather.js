@@ -4,17 +4,30 @@ import Forecast from './Forecast'
 import GoogleForm from './GoogleForm'
 import Conditions from '../constants/ConditionCode'
 import {changeScreen} from '../actions/HomeActions'
+import WeatherRain from './WeatherRain';
 
 var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
 
 // mapStateToProps
 const mapStateToProps = (state, ownProps) => {
     let {data} = ownProps
+    let weatherType = 'fair';
+    let rain = [1,2,3,4,5,6,7,8,9,10,11,12]
+    if ( rain.indexOf(parseInt(data.condition.code)) >= 0 ){
+        weatherType = 'rain'
+    } else if ( (data.condition.temp >= 30 && data.units.temp == 'c') ||  (data.condition.temp >= 86 && data.units.temp == 'f')){
+        weatherType = 'hot'
+    } else if ( (data.condition.temp < 10 && data.units.temp == 'c') ||  (data.condition.temp < 50 && data.units.temp == 'f') ) {
+        weatherType = 'snow'
+    } else {
+        weatherType = 'fair'
+    }
 
     return {
         classes: state.weatherData.classes,
         screen: state.screen,
         date: new Date(data.condition.date.substr(5, 11)),
+        weatherType: weatherType,
         backgroundClass() {
             let rain = [1,2,3,4,5,6,7,8,9,10,11,12]
             let hot = []
@@ -70,7 +83,7 @@ class Weather extends Component{
     }
 
     render(){
-        let {data, backgroundClass, classes, screen, date, onSearch, searchValue, onChangeLocation, changeMeasure} = this.props
+        let {data, backgroundClass, classes, screen, date, onSearch, searchValue, onChangeLocation, changeMeasure, weatherType} = this.props
         let displayClass = screen == 'weather' ? ' showup ' : ' hidden '
 
         let months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
@@ -80,11 +93,14 @@ class Weather extends Component{
         let temp = typeof data.units != 'undefined' ? data.units.temp : 'C';
         let switchClass = temp == 'F' ? 'on' : '' ;
 
+        let extraAnimation = () => {
+            if (weatherType == 'rain') return <WeatherRain></WeatherRain>
+        }
+
         return (
             <div className={"screen-container weather-container " + backgroundClass() + (displayClass) }>
                 <div className="gradient-bg"></div>
-                <div className="fs-bg rain-bg">
-                </div>
+                {extraAnimation()}
                 <div className="g-form">
                     <GoogleForm onSearch={onSearch}/>
                 </div>
@@ -101,7 +117,6 @@ class Weather extends Component{
                 </div>
 
                 <div className="weather-upper">
-                    <div className="bg"></div>
                     <div className="container">
                         <div className="weather-right">
                             <div className="weather-info">
@@ -123,8 +138,10 @@ class Weather extends Component{
                         </div>
                     </div>
                 </div>
-                <div className="weather-lower">
+
+                <div className="weather-background">
                     <div className="container">
+                        <div className="bg"></div>
                         <div className="doge">
                             <div className="doge-circles delay-10">
                                 <div className="circle-big"></div>

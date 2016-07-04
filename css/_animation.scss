@@ -39,7 +39,6 @@ $delay: 0;
   }
 
   .weather-upper{
-    height: 100vh;
     transition-property: all;
     transition-duration: 400ms;
   }
@@ -102,13 +101,6 @@ $delay: 0;
     }
     .forecast-item{
       opacity: 1;
-    }
-
-    .weather-upper{
-      height: 65vh;
-    }
-    .weather-lower{
-      height: 35vh;
     }
   }
 }
