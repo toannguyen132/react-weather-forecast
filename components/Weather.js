@@ -4,7 +4,11 @@ import Forecast from './Forecast'
 import GoogleForm from './GoogleForm'
 import Conditions from '../constants/ConditionCode'
 import {changeScreen} from '../actions/HomeActions'
-import WeatherRain from './WeatherRain';
+import WeatherRain from './WeatherRain'
+import $ from 'jquery'
+
+import bodymovin from '../utils/bodymovin.js'
+import dogeData from '../utils/data.json'
 
 var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
 
@@ -71,6 +75,16 @@ class Weather extends Component{
         setTimeout(function(){
             dispatch( { type: 'WEATHER_PANEL_MOUNTED', 'classes': {'mounted': true} } )
         }, 200)
+
+        let element = $('.doge-figure').get(0)
+        console.log(element)
+        bodymovin.loadAnimation({
+          container: element, // the dom element
+          renderer: 'svg',
+          loop: true,
+          autoplay: true,
+          animationData: dogeData // the animation data
+        })
     }
 
     changeLocation(e) {
@@ -147,7 +161,7 @@ class Weather extends Component{
                                 <div className="circle-big"></div>
                                 <div className="circle-small"></div>
                             </div>
-                            <div className="doge-bg delay-12"></div>
+                            <div className="doge-figure delay-12"></div>
                         </div>
                     </div>
                 </div>

@@ -37,6 +37,9 @@ module.exports = {
         test: /\.(ttf|eot|woff|woff2|svg)(\?.*$|$)/,
         loader : 'url-loader'
       },{
+        test: /\.json$/,
+        loader : 'json-loader'
+      },{
         test: /\.(jpg|png|gif)(\?.*$|$)/,
         loader : 'file-loader?name=[path][name].[ext]',
         include: PATHS.images
