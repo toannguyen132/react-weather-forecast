@@ -9,6 +9,7 @@ import $ from 'jquery'
 
 import bodymovin from '../utils/bodymovin.js'
 import dogeData from '../utils/data.json'
+import imgMountain from '../img/mountain.svg'
 
 var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
 
@@ -156,7 +157,7 @@ class Weather extends Component{
                 <div className="weather-background">
                     <div className="container">
                         <div className="bg">
-                            <img className="mountain" src={"/static/img/bg.png"}/>
+                            <img className="mountain" src={imgMountain}/>
                         </div>
                         <div className="doge">
                             <div className="doge-circles delay-10">
