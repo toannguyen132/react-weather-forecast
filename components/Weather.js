@@ -155,7 +155,9 @@ class Weather extends Component{
 
                 <div className="weather-background">
                     <div className="container">
-                        <div className="bg"></div>
+                        <div className="bg">
+                            <img className="mountain" src={"/static/img/bg.png"}/>
+                        </div>
                         <div className="doge">
                             <div className="doge-circles delay-10">
                                 <div className="circle-big"></div>
