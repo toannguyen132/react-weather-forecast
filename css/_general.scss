@@ -493,6 +493,7 @@ h2, h3, h4, h5, h6{
   }
 }
 
+/** ----- sun animation ---- **/
 @-webkit-keyframes sunwave {
     from {
       width: 50px;
@@ -541,5 +542,56 @@ h2, h3, h4, h5, h6{
   }
   .sun-wave-3{
     animation-delay: 2s;
+  }
+}
+
+/** ----- cloud animation ---- **/
+@-webkit-keyframes cloudhorizontal {
+  0% {
+    transform: translate(-50px, 0);
+  }
+  50% {
+    transform: translate(50px, 0);
+  }
+  100% {
+    transform: translate(-50px, 0);
+  }
+} 
+@-webkit-keyframes cloudvertical {
+  0% {
+    transform: translate(0, -2px);
+  }
+  50% {
+    transform: translate(0, 2px);
+  }
+  100% {
+    transform: translate(0, -2px);
+  }
+} 
+.cloud{
+  position: absolute;
+  transform: translate(-50%, -50%);
+  .cloud-vertical-animate{
+    animation-name: cloudvertical;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+  .cloud-horizontal-animate{
+    animation-name: cloudhorizontal;
+    animation-duration: 10s;
+    // animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+}
+.cloud-1{
+  top: 0;
+  left: 20%
+}
+.cloud-2{
+  top: 3%;
+  left: 70%;
+  .cloud-vertical-animate, .cloud-horizontal-animate{
+    animation-delay: 1s;
   }
 }

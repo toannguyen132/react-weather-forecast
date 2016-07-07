@@ -505,6 +505,7 @@ h2, h3, h4, h5, h6 {
     width: 100%;
     height: 100%; }
 
+/** ----- sun animation ---- **/
 @-webkit-keyframes sunwave {
   from {
     width: 50px;
@@ -551,6 +552,60 @@ h2, h3, h4, h5, h6 {
   .the-sun .sun-wave-3 {
     -webkit-animation-delay: 2s;
             animation-delay: 2s; }
+
+/** ----- cloud animation ---- **/
+@-webkit-keyframes cloudhorizontal {
+  0% {
+    -webkit-transform: translate(-50px, 0);
+            transform: translate(-50px, 0); }
+  50% {
+    -webkit-transform: translate(50px, 0);
+            transform: translate(50px, 0); }
+  100% {
+    -webkit-transform: translate(-50px, 0);
+            transform: translate(-50px, 0); } }
+@-webkit-keyframes cloudvertical {
+  0% {
+    -webkit-transform: translate(0, -2px);
+            transform: translate(0, -2px); }
+  50% {
+    -webkit-transform: translate(0, 2px);
+            transform: translate(0, 2px); }
+  100% {
+    -webkit-transform: translate(0, -2px);
+            transform: translate(0, -2px); } }
+.cloud {
+  position: absolute;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%); }
+  .cloud .cloud-vertical-animate {
+    -webkit-animation-name: cloudvertical;
+            animation-name: cloudvertical;
+    -webkit-animation-duration: 2s;
+            animation-duration: 2s;
+    -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite; }
+  .cloud .cloud-horizontal-animate {
+    -webkit-animation-name: cloudhorizontal;
+            animation-name: cloudhorizontal;
+    -webkit-animation-duration: 10s;
+            animation-duration: 10s;
+    -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite; }
+
+.cloud-1 {
+  top: 0;
+  left: 20%; }
+
+.cloud-2 {
+  top: 3%;
+  left: 70%; }
+  .cloud-2 .cloud-vertical-animate, .cloud-2 .cloud-horizontal-animate {
+    -webkit-animation-delay: 1s;
+            animation-delay: 1s; }
 
 @-webkit-keyframes slide-up {
   0% {

@@ -12,6 +12,8 @@ import $ from 'jquery'
 import bodymovin from '../utils/bodymovin.js'
 import dogeData from '../utils/data.json'
 import imgMountain from '../img/mountain.svg'
+import imgCloud1 from '../img/cloud-1.svg'
+import imgCloud2 from '../img/cloud-2.svg'
 
 var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
 
@@ -170,6 +172,16 @@ class Weather extends Component{
                         <div className="bg">
                             <img className="mountain" src={imgMountain}/>
                             {sunAnimation()}
+                            <div className="cloud-1 cloud">
+                                <div className="cloud-vertical-animate">
+                                    <div className="cloud-horizontal-animate"><img src={imgCloud1} /></div>
+                                </div>
+                            </div>
+                            <div className="cloud-2 cloud">
+                                <div className="cloud-vertical-animate">
+                                    <div className="cloud-horizontal-animate"><img src={imgCloud2} /></div>
+                                </div>
+                            </div>
                         </div>
                         <div className="doge">
                             <div className="doge-circles delay-10">
