@@ -51,15 +51,17 @@ function mergeProps(stateProps, dispatchProps, ownProps){
 
       // save location in cookie
       let setting = cookie.load('ls')
-
+      console.log(setting)
       if ( typeof setting != 'undefined' && typeof setting.location != 'undefined'){
         setting.location = location
+        delete setting.geolocation
       }
       else {
         setting = Object.assign({}, { 'location': location, 'measure': 'c' })
       }
+      let options = makeLocationOptions( setting )
 
-      doFetchWeatherData( dispatch, dispatch( updateLocationOptions( makeLocationOptions( {'location': location } ) ) ) )
+      doFetchWeatherData( dispatch, dispatch( updateLocationOptions( options ) ) )
     },
     
     changeMeasure(measure){
