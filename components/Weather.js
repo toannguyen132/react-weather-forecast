@@ -5,6 +5,8 @@ import GoogleForm from './GoogleForm'
 import Conditions from '../constants/ConditionCode'
 import {changeScreen} from '../actions/HomeActions'
 import WeatherRain from './WeatherRain'
+import WeatherSun from './WeatherSun'
+import WeatherSnow from './WeatherSnow'
 import $ from 'jquery'
 
 import bodymovin from '../utils/bodymovin.js'
@@ -112,10 +114,19 @@ class Weather extends Component{
             if (weatherType == 'rain') return <WeatherRain></WeatherRain>
         }
 
+        let sunAnimation = () => {
+            if (weatherType == 'hot') return <WeatherSun></WeatherSun>
+        }
+
+        let snowAnimation = () => {
+            if (weatherType == 'snow') return <WeatherSnow></WeatherSnow>
+        }
+
         return (
-            <div className={"screen-container weather-container " + backgroundClass() + (displayClass) }>
+            <div className={"screen-container weather-container " + weatherType + (displayClass) }>
                 <div className="gradient-bg"></div>
                 {extraAnimation()}
+                {snowAnimation()}
                 <div className="g-form">
                     <GoogleForm onSearch={onSearch}/>
                 </div>
@@ -158,6 +169,7 @@ class Weather extends Component{
                     <div className="container">
                         <div className="bg">
                             <img className="mountain" src={imgMountain}/>
+                            {sunAnimation()}
                         </div>
                         <div className="doge">
                             <div className="doge-circles delay-10">
