@@ -82,7 +82,6 @@ class Weather extends Component{
         }, 200)
 
         let element = $('.doge-figure').get(0)
-        console.log(element)
         bodymovin.loadAnimation({
           container: element, // the dom element
           renderer: 'svg',

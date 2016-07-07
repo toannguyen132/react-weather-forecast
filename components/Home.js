@@ -51,7 +51,6 @@ function mergeProps(stateProps, dispatchProps, ownProps){
 
       // save location in cookie
       let setting = cookie.load('ls')
-      console.log(setting)
       if ( typeof setting != 'undefined' && typeof setting.location != 'undefined'){
         setting.location = location
         delete setting.geolocation
