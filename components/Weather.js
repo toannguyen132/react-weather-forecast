@@ -7,6 +7,7 @@ import {changeScreen} from '../actions/HomeActions'
 import WeatherRain from './WeatherRain'
 import WeatherSun from './WeatherSun'
 import WeatherSnow from './WeatherSnow'
+import NightScene from './NightScene'
 import $ from 'jquery'
 
 import bodymovin from '../utils/bodymovin.js'
@@ -20,8 +21,13 @@ var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
 // mapStateToProps
 const mapStateToProps = (state, ownProps) => {
     let {data} = ownProps
-    let weatherType = 'fair';
+    let weatherType = 'fair'
     let rain = [1,2,3,4,5,6,7,8,9,10,11,12]
+    let date = new Date(data.condition.date.substr(5, 20))
+    let timeType = 'morning'
+
+    // rain > night > others
+    // night first
     if ( rain.indexOf(parseInt(data.condition.code)) >= 0 ){
         weatherType = 'rain'
     } else if ( (data.condition.temp >= 30 && data.units.temp == 'c') ||  (data.condition.temp >= 86 && data.units.temp == 'f')){
@@ -32,11 +38,26 @@ const mapStateToProps = (state, ownProps) => {
         weatherType = 'fair'
     }
 
+    let time = date.getHours();
+    if ( time >= 6 && time < 11 ){
+        timeType = 'morning'
+    } else if ( time >= 11 && time < 15){
+        timeType = 'noon'
+    } else if ( time >= 15 && time <= 18) {
+        timeType = 'afternoon'
+    } else {
+        timeType = 'night'
+    }
+
+    console.log( 'hour: ' +  date.getHours() );
+    console.log( 'weatherType: ' + weatherType );
+
     return {
         classes: state.weatherData.classes,
         screen: state.screen,
-        date: new Date(data.condition.date.substr(5, 11)),
+        date: date,
         weatherType: weatherType,
+        timeType: timeType,
         backgroundClass() {
             let rain = [1,2,3,4,5,6,7,8,9,10,11,12]
             let hot = []
@@ -101,7 +122,7 @@ class Weather extends Component{
     }
 
     render(){
-        let {data, backgroundClass, classes, screen, date, onSearch, searchValue, onChangeLocation, changeMeasure, weatherType} = this.props
+        let {data, backgroundClass, classes, screen, date, onSearch, searchValue, onChangeLocation, changeMeasure, weatherType, timeType} = this.props
         let displayClass = screen == 'weather' ? ' showup ' : ' hidden '
 
         let months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
@@ -123,8 +144,12 @@ class Weather extends Component{
             if (weatherType == 'snow') return <WeatherSnow></WeatherSnow>
         }
 
+        let nightScene = () => {
+            if (timeType == 'night') return <NightScene></NightScene>
+        }
+
         return (
-            <div className={"screen-container weather-container " + weatherType + (displayClass) }>
+            <div className={"screen-container weather-container " + weatherType + " " + timeType + (displayClass) }>
                 <div className="gradient-bg"></div>
                 {extraAnimation()}
                 {snowAnimation()}
@@ -171,6 +196,7 @@ class Weather extends Component{
                         <div className="bg">
                             <img className="mountain" src={imgMountain}/>
                             {sunAnimation()}
+                            {nightScene()}
                             <div className="cloud-1 cloud">
                                 <div className="cloud-vertical-animate">
                                     <div className="cloud-horizontal-animate"><img src={imgCloud1} /></div>

@@ -11,16 +11,14 @@ const mapStateToProps = (state, ownProps) => {
 
 const Form = ({screenClass, onSubmit}) => (
 	<div className={"screen-container weather-form " + screenClass }>
-		<div className="weather-upper">
+		<div className="weather-form-container">
 			<form onSubmit={onSubmit} className="form-weather">
-				<h2 className="subtitle">Please Enter your location</h2>
 				<div className="field">
-					<input type="text"/>
+					<span className="icon-location"></span>
+					<input type="text" placeholder="Enter a location"/>
+					<a className="trigger"><span className="icon-search"></span></a>
 				</div>
 			</form>
-		</div>
-		<div className="weather-lower">
-			
 		</div>
 	</div>
 )
