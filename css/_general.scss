@@ -62,26 +62,70 @@ $step-last: 100%;
     color: #fff;
     overflow: hidden;
   }
+  // hot 
   &.hot, &.hot-morning, &.hot-noon, &.hot-afternoon{
     .gradient-bg{
-      background-color: #EC7759;
-      background-image: linear-gradient(-178deg, #D18599 0%, #FFE2D3 $step-1, #FFF $step-2);
+      // background-color: #EC7759;
+      // background-image: linear-gradient(-178deg, #D18599 0%, #FFE2D3 $step-1, #FFF $step-2);
+      // /* Rectangle 10: */
+      background-image: linear-gradient(0deg, #FFFFFF 33%, #F4CC98 55%, #F1765E 100%);
     }
   }
+  &.hot.morning{
+    .gradient-bg{
+      background-image: linear-gradient(0deg, #FFFFFF 31%, #FFCEB3 53%, #A97E9B 100%);
+    }
+  }
+  &.hot.afternoon{
+    .gradient-bg{
+      background-image: linear-gradient(0deg, #F9F6F8 0%, #F6EFEF 51%, #DEA5A8 64%, #665B7E 84%, #1A2543 100%);
+    }
+  }
+
   &.rain, &.rain-morning, &.rain-noon, &.rain-afternoon{
     .gradient-bg{
       background-color: #7A808D;
       background-image: linear-gradient(-178deg, #667191 0%, #DAE0EC $step-1, #fff $step-2);
     }
   }
-  &.fair,&.fair-morning,&.fair-noon,&.fair-afternoon{
-    background-color: #34B0C2;
-    background-image: linear-gradient(-178deg, #34B0C2 0%, #CDECE3 $step-1, #fff $step-2);
+  
+  /** fair **/
+  &.fair,&.fair-noon,&.fair-afternoon{
+    .gradient-bg{
+      background-color: #34B0C2;
+      background-image: linear-gradient(-178deg, #34B0C2 0%, #CDECE3 $step-1, #fff $step-2);
+    }
   }
-  &.snow,&.snow-morning,&.snow-noon,&.snow-afternoon{
-    background-color: #2454AD;
-    background-image: linear-gradient(-178deg, #2454AD 0%, #509AD0 $step-2);
+  &.fair.morning{
+    .gradient-bg{
+      background-image: linear-gradient(-2deg, #FFFFFF 19%, #FFF7E4 46%, #5ABADF 99%);
+    }
   }
+  &.fair.afternoon{
+    .gradient-bg{
+      background-image: linear-gradient(0deg, #FFFFFF 13%, #FFF0DA 37%, #EECEA7 49%, #0B7897 100%);
+    }
+  }
+
+  /** cold **/
+  &.cold,&.snow-morning,&.snow-noon,&.snow-afternoon{
+    .gradient-bg{
+      background-image: linear-gradient(0deg, #FFFFFF 3%, #FFFAEF 28%, #36A4E8 73%, #008DE6 100%);
+    }
+  }
+
+  &.cold.morning{
+    .gradient-bg{
+      background-image: linear-gradient(-2deg, #FFFFFF 19%, #FFF7E4 46%, #5ABADF 99%);
+    }
+  }
+  &.cold.afternoon{
+    .gradient-bg{
+      background-image: linear-gradient(0deg, #FFFFFF 0%, #FFFFFF 43%, #7BB4E0 70%, #00266E 100%);
+    }
+  }
+
+  /** night **/
   &.night{
     .gradient-bg{
       background: #0A2844 !important;

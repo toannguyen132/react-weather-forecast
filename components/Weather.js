@@ -33,7 +33,7 @@ const mapStateToProps = (state, ownProps) => {
     } else if ( (data.condition.temp >= 30 && data.units.temp == 'c') ||  (data.condition.temp >= 86 && data.units.temp == 'f')){
         weatherType = 'hot'
     } else if ( (data.condition.temp < 10 && data.units.temp == 'c') ||  (data.condition.temp < 50 && data.units.temp == 'f') ) {
-        weatherType = 'snow'
+        weatherType = 'cold'
     } else {
         weatherType = 'fair'
     }
@@ -51,6 +51,8 @@ const mapStateToProps = (state, ownProps) => {
 
     console.log( 'hour: ' +  date.getHours() );
     console.log( 'weatherType: ' + weatherType );
+    weatherType = 'cold';
+    timeType = 'noon';
 
     return {
         classes: state.weatherData.classes,
@@ -68,7 +70,7 @@ const mapStateToProps = (state, ownProps) => {
             } else if ( (data.condition.temp >= 30 && data.units.temp == 'c') ||  (data.condition.temp >= 86 && data.units.temp == 'f')){
                 return 'hot'
             } else if ( (data.condition.temp < 10 && data.units.temp == 'c') ||  (data.condition.temp < 50 && data.units.temp == 'f') ) {
-                return 'snow'
+                return 'cold'
             } else {
                 return 'fair'
             }
@@ -137,11 +139,11 @@ class Weather extends Component{
         }
 
         let sunAnimation = () => {
-            if (weatherType == 'hot') return <WeatherSun></WeatherSun>
+            if ((weatherType == 'hot' || weatherType == 'fair') && timeType == 'noon' ) return <WeatherSun></WeatherSun>
         }
 
         let snowAnimation = () => {
-            if (weatherType == 'snow') return <WeatherSnow></WeatherSnow>
+            if (weatherType == 'cold') return <WeatherSnow></WeatherSnow>
         }
 
         let nightScene = () => {
