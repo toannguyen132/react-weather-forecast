@@ -49,11 +49,6 @@ const mapStateToProps = (state, ownProps) => {
         timeType = 'night'
     }
 
-    console.log( 'hour: ' +  date.getHours() );
-    console.log( 'weatherType: ' + weatherType );
-    weatherType = 'cold';
-    timeType = 'noon';
-
     return {
         classes: state.weatherData.classes,
         screen: state.screen,
