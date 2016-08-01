@@ -225,8 +225,8 @@ body, html {
   color: #3376AA; }
 
 .weather-container.night .mountain {
-  -webkit-filter: hue-rotate(363deg) grayscale(1) brightness(9%);
-          filter: hue-rotate(363deg) grayscale(1) brightness(9%); }
+  -webkit-filter: none;
+          filter: none; }
 
 .weather-container .gradient-bg {
   position: absolute;
@@ -273,9 +273,15 @@ body, html {
     width: 100%;
     height: 100%; }
 
+.screen-container.night .doge-circles {
+  display: none; }
+
 h2, h3, h4, h5, h6 {
   font-weight: 400;
   margin: 0; }
+
+.screen-container.night .forecasts {
+  color: #fff; }
 
 .weather-upper {
   padding: 20px 0 20px 0;
@@ -670,6 +676,19 @@ h2, h3, h4, h5, h6 {
   .cloud-2 .cloud-vertical-animate, .cloud-2 .cloud-horizontal-animate {
     -webkit-animation-delay: 1s;
             animation-delay: 1s; }
+
+.stars {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50%; }
+  .stars .star {
+    border-radius: 10px;
+    width: 2px;
+    height: 2px;
+    background-color: #fff;
+    position: absolute; }
 
 .moon {
   position: absolute;

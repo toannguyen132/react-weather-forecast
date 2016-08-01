@@ -13,6 +13,7 @@ import $ from 'jquery'
 import bodymovin from '../utils/bodymovin.js'
 import dogeData from '../utils/data.json'
 import imgMountain from '../img/mountain.svg'
+import imgMountainNight from '../img/mountain-night.svg'
 import imgCloud1 from '../img/cloud-1.svg'
 import imgCloud2 from '../img/cloud-2.svg'
 
@@ -49,12 +50,21 @@ const mapStateToProps = (state, ownProps) => {
         timeType = 'night'
     }
 
+    timeType = 'night';
+    weatherType = 'fair';
+
+    let mountainImage = imgMountain;
+    if (weatherType != 'rain' && timeType == 'night'){
+        mountainImage = imgMountainNight;
+    }
+
     return {
         classes: state.weatherData.classes,
         screen: state.screen,
         date: date,
         weatherType: weatherType,
         timeType: timeType,
+        mountainImage: mountainImage,
         backgroundClass() {
             let rain = [1,2,3,4,5,6,7,8,9,10,11,12]
             let hot = []
@@ -120,6 +130,7 @@ class Weather extends Component{
 
     render(){
         let {data, backgroundClass, classes, screen, date, onSearch, searchValue, onChangeLocation, changeMeasure, weatherType, timeType} = this.props
+        let {mountainImage} = this.props
         let displayClass = screen == 'weather' ? ' showup ' : ' hidden '
 
         let months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
@@ -143,6 +154,10 @@ class Weather extends Component{
 
         let nightScene = () => {
             if (timeType == 'night') return <NightScene></NightScene>
+        }
+
+        let starScene = () => {
+            if (timeType == 'night') return <StarsScene></StarsScene>
         }
 
         return (
@@ -191,7 +206,7 @@ class Weather extends Component{
                 <div className="weather-background">
                     <div className="container">
                         <div className="bg">
-                            <img className="mountain" src={imgMountain}/>
+                            <img className="mountain" src={mountainImage}/>
                             {sunAnimation()}
                             {nightScene()}
                             <div className="cloud-1 cloud">
